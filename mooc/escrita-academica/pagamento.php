@@ -8,7 +8,7 @@ if ($_POST) {
 	$statusPagamento = $_POST['statusPagamento'];
 	$usuario_idUsuario = $_POST['nomeUsuario'];
 	$idUsuarioSession = $_SESSION['idUsuario'];
-	$conexao = mysqli_connect('localhost', 'alexandria', 'alexandria', 'alexandria');
+	$conexao = mysqli_connect('localhost', 'admin', 'admin', 'alexandria');
 
 	if ($conexao) {
 		$query = mysqli_query($conexao, "select * from pagamento where usuario_idUsuario = $idUsuarioSession");

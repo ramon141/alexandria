@@ -5,7 +5,7 @@ if ($_POST && $_GET && isset($_GET['page'])) {
 	$_SESSION['emailUsuario'] = $_POST['emailUser'];
 	$emailUsuario = $_POST['emailUser'];
 	$senhaUsuario = $_POST['senhaUser'];
-	$conexao = mysqli_connect('localhost', 'alexandria', 'alexandria', 'alexandria');
+	$conexao = mysqli_connect('localhost', 'admin', 'admin', 'alexandria');
 	if ($conexao) {
 		echo "<br>conectou<br>";
 		$sql = "SELECT * FROM usuario WHERE  emailUsuario = '$emailUsuario' and senhaUsuario = '$senhaUsuario'";

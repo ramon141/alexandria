@@ -54,20 +54,20 @@
 							<div class="main-menu  d-none d-lg-block">
 								<nav>
 									<ul id="navigation">
-										<li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/index.php">home</a></li>
+										<li><a href="index.php">home</a></li>
 										<li><a href="#">MOOC <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
-												<li><a href="index.php">escrita acadêmica</a></li>
+												<li><a href="mooc/escrita-academica/index.php">escrita acadêmica</a></li>
 											</ul>
 										</li>
-										<li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/about.php">About</a></li>
+										<li><a href="about.php">About</a></li>
 										<li><a href="#">blog <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
-												<li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/materia-gratuito.php">material gratuito</a>
+												<li><a href="materia-gratuito.php">material gratuito</a>
 												</li>
-												<li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/analise.php">Análise de Sistemas</a>
+												<li><a href="analise.php">Análise de Sistemas</a>
 												</li>
-												<li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/bd.php">Banco de Dados</a>
+												<li><a href="bd.php">Banco de Dados</a>
 												</li>
 											</ul>
 										</li>

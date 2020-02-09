@@ -19,7 +19,7 @@
 				echo "Email já cadastrado";
 		} else {
 			$query = mysqli_query($connection, "INSERT INTO usuario (nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, tipoUsuario) values ('$nomeUsuario', '$sobrenomeUsuario', '$emailUsuario', '$senhaUsuario', '$tipoUsuario')");
-                 
+                        echo "INSERT INTO usuario (nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, tipoUsuario) values ('$nomeUsuario', '$sobrenomeUsuario', '$emailUsuario', '$senhaUsuario', '$tipoUsuario')";
                         if($query){
 				echo "Cadastro feito com sucesso";
 				$_SESSION['nomeUsuario']  = $nomeUsuario;

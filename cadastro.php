@@ -22,6 +22,8 @@
 		} else {
 			$query = mysqli_query($connection, "INSERT INTO usuario (nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, tipoUsuario) values ('$nomeUsuario', '$sobrenomeUsuario', '$emailUsuario', '$senhaUsuario', '$tipoUsuario')");
 
+			echo "INSERT INTO usuario (nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, tipoUsuario) values ('$nomeUsuario', '$sobrenomeUsuario', '$emailUsuario', '$senhaUsuario', '$tipoUsuario')";
+
 			if($query){
 				echo "Cadastro feito com sucesso";
 				$_SESSION['nomeUsuario']  = $nomeUsuario;
@@ -32,14 +34,14 @@
 				//header("location: index.php");
 			}else{
 				echo "Verifique se todos os campos foram inseridos corretamente";
-				header("location: index.php");
+				//header("location: index.php");
 			} 
 		}
 		if($connection){ 
 			mysqli_close($connection);
-			$_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso. Faça seu login</p>";
-			header("Location: index.php");
-//			echo "tem conexao";
+//			$_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso. Faça seu login</p>";
+//			header("Location: indAex.php");
+			echo "tem conexao";
 
 		}
 		else{

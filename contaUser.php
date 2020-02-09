@@ -56,7 +56,7 @@ if(isset($_SESSION['emailUsuario'])){
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/index.php">home</a></li>
+                                        <li><a href="index.php">home</a></li>
                                         <li><a href="#">MOOC <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="mooc/escrita-academica/index.php">escrita acadêmica</a></li>

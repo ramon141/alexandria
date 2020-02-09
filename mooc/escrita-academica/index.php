@@ -56,20 +56,20 @@ if(isset($_SESSION['temCartao'])){
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/index.php">home</a></li>
+                                        <li><a href="index.php">home</a></li>
                                         <li><a class="active"  href="#">MOOC <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="">Escrita Acadêmica</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/about.php">About</a></li>
+                                        <li><a href="about.php">About</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/material-gratuito.php">material gratuito</a>
+                                                <li><a href="material-gratuito.php">material gratuito</a>
                                                 </li>
-                                                <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/analise.php">Análise de Sistemas</a>
+                                                <li><a href="analise.php">Análise de Sistemas</a>
                                                 </li>
-                                                <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/bd.php">Banco de Dados</a>
+                                                <li><a href="bd.php">Banco de Dados</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -87,7 +87,7 @@ if(isset($_SESSION['temCartao'])){
                                     <ul>
                                     <li><a href='#'> $loginUser <i class='ti-angle-down'></i></a>
                                     <ul class='submenu'>
-                                    <li><a href='http://webdev.santarem.ifpa.edu.br/alexandria/site/contaUser.php'>Configuração de Conta</a></li>
+                                    <li><a href='contaUser.php'>Configuração de Conta</a></li>
                                     <li><a href='logout.php'>Sair</a></li>
                                     </ul>
                                     </li>
@@ -242,12 +242,12 @@ if(isset($_SESSION['temCartao'])){
                 if (isset($loginUser)) {
                     if(isset($_SESSION['temcartao']) && strcmp($_SESSION['temcartao'],"1") == 0){
                         echo "<a href='aula.php'>
-                        <span class='boxed_btn'>Comece a aprender</span>
+                        <span class='boxed_btn'>Comece aprender</span>
                         </a>";
                         
                     } else {
-                        echo "<a href='aula.php'>
-                    <span class='boxed_btn'>Comece a aprender</span>
+                        echo "<a href='pay.php'>
+                    <span class='boxed_btn'>Compre Agora!</span>
                     </a>";
                     }
                     

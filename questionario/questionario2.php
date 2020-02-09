@@ -86,7 +86,9 @@
 	}
 	if($tem == $_SESSION['perguntaAtual']){
 
-		header("Location: moduloConcluido.html");
+		$perguntaR = "Fim das perguntas";
+		$_SESSION['perguntaAtual'] = 0;
+		$_SESSION['respostaUltima'] = 0;	
 
 	}else{
 		$queryRespostas = mysqli_query($connection, "select * from resposta where pergunta_idPergunta = '$idPergunta' order by rand();");

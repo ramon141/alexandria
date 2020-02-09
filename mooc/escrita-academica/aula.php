@@ -4,8 +4,6 @@ if(isset($_SESSION['nomeUsuario'])){
     $loginUser = $_SESSION['nomeUsuario'];
 }
 
-$primeiroVideo = "";
-
 if($_GET && isset($_GET['modulo'])){
     $modulo = $_GET['modulo'];
     if($modulo > 2){
@@ -19,7 +17,7 @@ if($_GET && isset($_GET['modulo'])){
     $modulo = 1;
 }
 
-$conexao = mysqli_connect('localhost', 'alexandria', 'alexandria') or die ('Erro ao conectar');
+$conexao = mysqli_connect('localhost', 'admin', 'admin') or die ('Erro ao conectar');
 $bd = mysqli_select_db ($conexao, 'alexandria') or die ("base de dados nao selecionada");
 
 
@@ -52,9 +50,6 @@ if ($conexao) {
         while ($mostraVideo = mysqli_fetch_array($query)) {
             //adiciona um a cada volta do while
             $loop++;
-            if($loop == 1){
-                $primeiroVideo = $mostraVideo[1];
-            }
             //verifica o while esta na ultima vez
             if($quantLinha == $loop){
                 //se sim, vai executar isso. Isso colocar um vetor sem a virgula, que representa a ultima posicao do vetor
@@ -69,7 +64,7 @@ if ($conexao) {
         
         
         function bloqueado(){
-            alert("Processo encontra-se bloqueado para avaliação!");
+            alert("Este módulo ainda encontra-se bloqueado");
         }
 
         function alteraImagem(){
@@ -100,8 +95,8 @@ if ($conexao) {
                 } else if(videoAtual == <?php echo "$quantLinha"; ?>){
                     videoAtual++;
                     var botaoVideo = document.getElementById("ifrma_video1");
-            //        botaoVideo.src = "../../questionario/questionario<?php echo $modulo;?>.php";
-                    bloqueado();
+                    botaoVideo.src = "../../questionario/questionario<?php echo $modulo;?>.php";
+                    questionario();
                 }
             }
             
@@ -210,20 +205,20 @@ if ($conexao) {
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/">home</a></li>
+                                            <li><a href="home.php">home</a></li>
                                             <li><a class="active" href="#">MOOC <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/mooc/escrita-academica/">escrita acadêmica</a></li>
+                                                    <li><a href="">escrita acadêmica</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="about.php">About</a></li>
                                             <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/material-gratuito.php">material gratuito</a>
+                                                    <li><a href="material-gratuito.php">material gratuito</a>
                                                     </li>
-                                                    <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/analise.php">Análise de Sistemas</a>
+                                                    <li><a href="analise.php">Análise de Sistemas</a>
                                                     </li>
-                                                    <li><a href="http://webdev.santarem.ifpa.edu.br/alexandria/site/bd.php">Banco de Dados</a>
+                                                    <li><a href="bd.php">Banco de Dados</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -243,7 +238,7 @@ if ($conexao) {
                                         <li><a href='#'> $loginUser 
                                         <i class='ti-angle-down'></i></a>
                                         <ul class='submenu'>
-                                        <li><a href='http://webdev.santarem.ifpa.edu.br/alexandria/site/contaUser.php'>Configuração de Conta</a></li>
+                                        <li><a href='contaUser.php'>Configuração de Conta</a></li>
                                         <li><a href='logout.php'>Sair</a></li>
                                         </ul>
                                         </li>
@@ -322,16 +317,13 @@ if ($conexao) {
                                         </li>
                                     </ul>
                                 </figcaption>
-                                <div style="margin: 10px 3px;">
-                                    <iframe width="630" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src="<?php echo $primeiroVideo;?>" allowfullscreen id="ifrma_video1"></iframe>
+                                <div style="margin: 20px 6px;">
+                                    <iframe width="680" height="318"frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="ifrma_video1"></iframe>
                                 </div>
-
-
-
                                 <div>
                                     <button style=" background-color: #04D2C8;" id="btn_video" 
                                     onclick="anteriorVideo();"; > Anterior</button>
-                                    <button style="margin: 6px 10px; background-color: #04D2C8;" id="btn_video" 
+                                    <button style="margin: 6px 10px; background-color: #04D2C8;" id="btn_video"
                                     onclick="avancarVideo();"> Avançar</button>
                                 </div>
                                 <br><br>
