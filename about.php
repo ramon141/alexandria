@@ -127,7 +127,7 @@ if(isset($_SESSION['nomeUsuario'])){
                     <div class="col-xl-5 col-lg-6">
                         <div class="single_about_info">
                             <h3>Alexandria</h3>
-                            <p align="justify">O Alexandria é um sistema que, inicialmente, oferece um MOOC sobre Escrita Científica para a comunidade acadêmica. Esse sistema faz parte do projeto integrador de quatro acadêmicas do curso técnico em Informática do Instituto Federal do Pará - Campus Santarém. O projeto tem como objetivo ensinar a escrita científica de forma atrativa e divertida para auxiliar os acadêmicos com dificuldades em realizar trabalhos de cunho científico. </p>
+                            <p align="justify" style="color: #777777">O Alexandria é um sistema que, inicialmente, oferece um MOOC sobre Escrita Científica para a comunidade acadêmica. Esse sistema faz parte do projeto integrador de quatro acadêmicas do curso técnico em Informática do Instituto Federal do Pará - Campus Santarém. O projeto tem como objetivo ensinar a escrita científica de forma atrativa e divertida para auxiliar os acadêmicos com dificuldades em realizar trabalhos de cunho científico. </p>
                             
                         </div>
                     </div>
