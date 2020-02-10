@@ -260,7 +260,7 @@ if($_GET && isset($_GET['id'])){
 				<div class="row">
 					<div class="col-xl-12">
 						<p style="color: white;" class="text-center">      
-						Copyright Alexandria 2019</a>
+						<a>Todos os direitos reservados para o site Alexandria 2020</a>
 					</p>
 				</div>
 			</div>
