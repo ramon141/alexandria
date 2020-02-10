@@ -70,20 +70,20 @@ if($_GET && isset($_GET['id'])){
 							<div class="main-menu  d-none d-lg-block">
 								<nav>
 									<ul id="navigation">
-										<li><a href="index.php">home</a></li>
+										<li><a href="../../index.php">Início</a></li>
 										<li><a href="#">MOOC <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
 												<li><a href="mooc/escrita-academica/index.php">escrita acadêmica</a></li>
 											</ul>
 										</li>
-										<li><a href="about.php">About</a></li>
+										<li><a href="../../about.php">Sobre</a></li>
 										<li><a href="#">blog <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
-												<li><a href="materia-gratuito.php">material gratuito</a>
+												<li><a href="../../materia-gratuito.php">material gratuito</a>
 												</li>
-												<li><a href="analise.php">Análise de Sistemas</a>
+												<li><a href="../../analise.php">Análise de Sistemas</a>
 												</li>
-												<li><a href="bd.php">Banco de Dados</a>
+												<li><a href="../../bd.php">Banco de Dados</a>
 												</li>
 											</ul>
 										</li>

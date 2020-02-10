@@ -17,18 +17,17 @@ if($_GET && isset($_GET['modulo'])){
     $modulo = 1;
 }
 
-$conexao = mysqli_connect('localhost', 'admin', 'admin') or die ('Erro ao conectar');
-$bd = mysqli_select_db ($conexao, 'alexandria') or die ("base de dados nao selecionada");
+require_once("conexao.php");
 
 
-if ($conexao) {
+if ($connection) {
     $sql = "SELECT * FROM `video` where modulo_idModulo = $modulo";
-    $query = mysqli_query($conexao, $sql);
+    $query = mysqli_query($connection, $sql);
         //quatidade de registros retornados pelo select
     $quantLinha = mysqli_num_rows($query);
 
     $sql1 = "SELECT * FROM `audio` where modulo_idModulo = $modulo";
-    $query1 = mysqli_query($conexao, $sql1);
+    $query1 = mysqli_query($connection, $sql1);
 }
 
 ?>      
@@ -205,20 +204,20 @@ if ($conexao) {
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="home.php">home</a></li>
+                                            <li><a href="../../index.php">Início</a></li>
                                             <li><a class="active" href="#">MOOC <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="">escrita acadêmica</a></li>
+                                                    <li><a href="material-gratuito.php">escrita acadêmica</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="about.php">About</a></li>
+                                            <li><a href="../../about.php">Sobre</a></li>
                                             <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="material-gratuito.php">material gratuito</a>
+                                                    <li><a href="../../material-gratuito.php">material gratuito</a>
                                                     </li>
-                                                    <li><a href="analise.php">Análise de Sistemas</a>
+                                                    <li><a href="../../analise.php">Análise de Sistemas</a>
                                                     </li>
-                                                    <li><a href="bd.php">Banco de Dados</a>
+                                                    <li><a href="../../bd.php">Banco de Dados</a>
                                                     </li>
                                                 </ul>
                                             </li>

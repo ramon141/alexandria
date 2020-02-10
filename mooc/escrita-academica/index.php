@@ -56,13 +56,13 @@ if(isset($_SESSION['temCartao'])){
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.php">home</a></li>
+                                        <li><a href="index.php">Início</a></li>
                                         <li><a class="active"  href="#">MOOC <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="">Escrita Acadêmica</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="about.php">About</a></li>
+                                        <li><a href="about.php">Sobre</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="material-gratuito.php">material gratuito</a>
@@ -130,10 +130,10 @@ if(isset($_SESSION['temCartao'])){
                         <div class="hours">
                             <div class="video">
                                <div class="single_video">
-                                <i class="fa fa-clock-o"></i> <span>12 Videos</span>
+                                <i class="fa fa-clock-o"></i> <span>2 Horas</span>
                             </div>
                             <div class="single_video">
-                                <i class="fa fa-play-circle-o"></i> <span>2 Hours</span>
+                                <i class="fa fa-play-circle-o"></i> <span>12 Vídeos</span>
                             </div>
                             
                         </div>
@@ -318,7 +318,7 @@ if(isset($_SESSION['temCartao'])){
         <div class="row">
             <div class="col-xl-12">
                 <p style="color: white;" class="text-center">      
-                Copyright Alexandria 2019</a>
+                <a>Todos os direitos reservados para o site Alexandria 2020</a>
             </p>
         </div>
     </div>
@@ -385,13 +385,13 @@ if(isset($_SESSION['temCartao'])){
                     <input type="text" placeholder="Sobrenome" name="sobrenomeUsuario">
                 </div>
                 <div class="col-xl-12 col-md-12">
-                    <input type="email" placeholder="Enter email" name="emailUsuario">
+                    <input type="email" placeholder="Digite seu email" name="emailUsuario">
                 </div>
                 <div class="col-xl-12 col-md-12">
-                    <input type="password" placeholder="Password" name="senhaUsuario">
+                    <input type="password" placeholder="Senha" name="senhaUsuario">
                 </div>
                 <div class="col-xl-12 col-md-12">
-                    <input type="Password" placeholder="Confirm password" name="senhaConfirmar">
+                    <input type="Password" placeholder="Confirmar senha" name="senhaConfirmar">
                 </div>
                 <div class="col-xl-12">
                     <button type="submit" class="boxed_btn_orange">Cadastrar</button>
