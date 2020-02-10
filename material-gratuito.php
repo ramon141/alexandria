@@ -165,7 +165,7 @@ if(isset($_SESSION['nomeUsuario'])){
       <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_07af428939512d4ecffc7d1f0_f91ea7c34e" tabindex="-1" value=""></div>
       <div class="clear">
           <center><input type="submit" style="width: 20%; background-color: #4682b4; color: white; padding: 14px 20px; margin: 8px 0; border: none; 
-          border-radius: 4px; cursor: pointer;" value="Enviar para e-mail" name="subscribe" id="mc-embedded-subscribe" ></center>
+          border-radius: 4px; cursor: pointer;" value="Receber material" name="subscribe" id="mc-embedded-subscribe" ></center>
       </div>
 
   </div>

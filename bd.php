@@ -116,7 +116,7 @@ if(isset($_SESSION['nomeUsuario'])){
 
         <!-- bradcam_area_start -->
         <div class="bradcam_area breadcam_bg overlay2">
-            <h3>BANCO DE DADOS</h3>
+            <h3>Banco de Dados</h3>
         </div>
         <!-- bradcam_area_end -->
 
@@ -136,14 +136,13 @@ if(isset($_SESSION['nomeUsuario'])){
                                     </li>
                                 </ul>
 
-                                <p align="justify">O projeto de&nbsp;banco de dados do sistema Alexandria foi feito&nbsp;nas três fases da modelagem: modelo conceitual, modelo lógico e modelo físico.</p>
+                                <p align="justify">O projeto de banco de dados do sistema Alexandria foi feito nas três fases da modelagem: modelo conceitual, modelo lógico e modelo físico.
 
-                                <p align="justify">Na primeira etapa, foi feito a modelagem conceitual do sistema, que permitiu&nbsp;fazer uma prévia descrição do sistema de como se parece, comporta e o que faz, assim gerando um modelo simples que se possa compreender pelo usuário. Definindo&nbsp;as&nbsp; entidades, seus respectivos atributos e os relacionamentos.<strong>&nbsp;</strong></p>
+Na primeira etapa, foi feito a modelagem conceitual do sistema, que permitiu fazer uma prévia descrição do sistema de como se parece, comporta e o que faz, assim gerando um modelo simples que se possa compreender pelo usuário. Definindo as  entidades, seus respectivos atributos e os relacionamentos. 
 
-                                <p align="justify">Na segunda etapa, foi feita a modelagem lógica, que&nbsp;descreve como os dados serão armazenados no banco e, também, seus relacionamentos. &nbsp;O modelo lógico&nbsp;implementa&nbsp;com as&nbsp;adequações&nbsp;padrões&nbsp;de nomenclatura, define as chaves primárias e estrangeiras, normalização, entre outras.</p>
+Na segunda etapa, foi feita a modelagem lógica, que descreve como os dados serão armazenados no banco e, também, seus relacionamentos.  O modelo lógico implementa com as adequações padrões de nomenclatura, define as chaves primárias e estrangeiras, normalização, entre outras.
 
-                                <p align="justify">Na terceira etapa, foi feita a modelagem física, que&nbsp;levou em conta as limitações impostas pelo SGBD (Sistema Gerenciador de Bancos de Dados) escolhido e foi&nbsp;criado&nbsp;com base nos exemplos de modelagem de dados produzidos no&nbsp;modelo lógico.</p> <br>
-
+Na terceira etapa, foi feita a modelagem física, que levou em conta as limitações impostas pelo SGBD (Sistema Gerenciador de Bancos de Dados) escolhido e foi criado com base nos exemplos de modelagem de dados produzidos no modelo lógico.</p><br>
                                 <li>
                                     <h4><strong>MODELO CONCEITUAL</strong></h4>
                                 </li>

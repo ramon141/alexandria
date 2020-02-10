@@ -53,7 +53,7 @@ if(isset($_SESSION['nomeUsuario'])){
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.php">home</a></li>
+                                        <li><a class="active" href="index.php">Início</a></li>
                                         <li><a href="#">MOOC <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="mooc/escrita-academica/index.php">Escrita Acadêmica</a></li>
@@ -127,8 +127,8 @@ if(isset($_SESSION['nomeUsuario'])){
                     </div>
                     <div class="col-xl-6 col-md-6">
                         <div class="slider_info">
-                            <h3> Bem-Vindo<br>
-                               ao Alexandria<br></h3>
+                            <h3> Bem-vindo<br>
+                               ao Alexandria!<br></h3>
                                <a href="about.php" class="boxed_btn">Conheça nosso MOOC!</a>
                            </div>
                        </div>
@@ -188,7 +188,7 @@ if(isset($_SESSION['nomeUsuario'])){
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-100">
-                        <h3 style="color: #4682b4">Ultimas Postagens</h3>
+                        <h3 style="color: #4682b4">Últimas Postagens</h3>
                     </div>
                 </div>
             </div>
@@ -422,8 +422,3 @@ if(isset($_SESSION['nomeUsuario'])){
 </body>
 
 </html>
-<?php
-if($con){
-  mysqli_close($con);
-}
-?>
