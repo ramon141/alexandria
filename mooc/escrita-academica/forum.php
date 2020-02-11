@@ -54,76 +54,28 @@ if($_GET && isset($_GET['id'])){
 
 <body>
 	<!-- header-start -->
-	<header>
-		<div class="header-area ">
-			<div id="sticky-header" class="main-header-area">
-				<div class="container-fluid p-0">
-					<div class="row align-items-center no-gutters">
-						<div class="col-xl-1 col-lg-1">
-							<div class="logo-img">
-								<a href="index.php">
-									<img src="img/logoAlexandria.png" alt="Alexandria" style="width:80px;height:80px;">
-								</a>
-							</div>
-						</div>
-						<div class="col-xl-6 col-lg-6">
-							<div class="main-menu  d-none d-lg-block">
-								<nav>
-									<ul id="navigation">
-										<li><a href="../../index.php">Início</a></li>
-										<li><a href="#">MOOC <i class="ti-angle-down"></i></a>
-											<ul class="submenu">
-												<li><a href="mooc/escrita-academica/index.php">escrita acadêmica</a></li>
-											</ul>
-										</li>
-										<li><a href="../../about.php">Sobre</a></li>
-										<li><a href="#">blog <i class="ti-angle-down"></i></a>
-											<ul class="submenu">
-												<li><a href="../../materia-gratuito.php">material gratuito</a>
-												</li>
-												<li><a href="../../analise.php">Análise de Sistemas</a>
-												</li>
-												<li><a href="../../bd.php">Banco de Dados</a>
-												</li>
-											</ul>
-										</li>
-										<li><a class="active" href="forum.php">Fórum</a></li>
-										
-									</ul>
-									
-								</nav>
-							</div>
-						</div>
-						<div class="col-xl-5 col-lg-5">
-							<div class="log_chat_area d-flex align-items-center">    								
-								<?php 
-								if (isset($loginUser)) {
-									echo "
-									<div class='col-xl-7 col-lg-7'>
-									<div class='main-menu d-none d-lg-block'>
-									<ul>
-									<li><a href='#'> $loginUser <i class='ti-angle-down'></i></a>
-									<ul class='submenu'>
-									<li><a href='contaUser.php'>Configuração de Conta</a></li>
-									<li><a href='logout.php'><span class='flaticon-log-out'></span>Sair</a></li>
-									</ul>
-									</li>
-									</ul>
-									</div>  
-									</div> ";
-								}
-								?>
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="mobile_menu d-block d-lg-none"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- header-end -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo-img">
+                                <a href="index.php">
+                                    <img src="img/logoAlexandria.png" alt="Alexandria" style="width:80px;height:80px;">
+                                </a>
+                            </div>
+                        </div>
+                         <?php include 'navbar2.php' ?>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
 
 	<!-- bradcam_area_start -->
 	<div class="bradcam_area breadcam_bg overlay2">
