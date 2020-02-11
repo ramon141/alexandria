@@ -1,7 +1,6 @@
 <?php 
 
-	require_once("../../conexao.php");
-	$connection->set_charset("utf8");
+	require_once("../conexao.php");
 	$idUsuario = 4;
 	$queryModulo = mysqli_query($connection, "SELECT * from modulo");
 	$quantModulo = mysqli_num_rows($queryModulo);

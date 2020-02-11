@@ -10,7 +10,6 @@
 
 
 	require_once '../conexao.php';
-	$connection->set_charset("utf8");
 	//mysqli_query($connection, "TRUNCATE `userresp`;");
 
 

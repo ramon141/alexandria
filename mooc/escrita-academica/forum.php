@@ -5,8 +5,7 @@ session_start();
 if(isset($_SESSION['nomeUsuario'])){
 	$loginUser = $_SESSION['nomeUsuario'];
 }
-require_once 'conexao.php';
-$connection->set_charset("utf8");
+require_once ("../../conexao.php");
 if($_POST && isset($_POST['pesq'])){
 	$pesq = $_POST['pesq'];
 	$query = mysqli_query($connection, "select * from topico_foruns where pergunta LIKE '%$pesq%'");

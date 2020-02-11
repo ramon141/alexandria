@@ -5,11 +5,11 @@ if ($_POST && $_GET && isset($_GET['page'])) {
 	$_SESSION['emailUsuario'] = $_POST['emailUser'];
 	$emailUsuario = $_POST['emailUser'];
 	$senhaUsuario = $_POST['senhaUser'];
-	$conexao = mysqli_connect('localhost', 'admin', 'admin', 'alexandria');
-	if ($conexao) {
+	require_once './conexao.php';
+	if ($connection) {
 		echo "<br>conectou<br>";
 		$sql = "SELECT * FROM usuario WHERE  emailUsuario = '$emailUsuario' and senhaUsuario = '$senhaUsuario'";
-		$buscarUser = mysqli_query($conexao,$sql);
+		$buscarUser = mysqli_query($connection,$sql);
                 
                 if (mysqli_num_rows ($buscarUser) > 0){
 			echo "<br> Login efetuado com sucesso";
@@ -17,7 +17,7 @@ if ($_POST && $_GET && isset($_GET['page'])) {
 				$_SESSION ['nomeUsuario'] = $fetch[1];
                                 $idUsuario = $fetch[0];
 			}
-                        $query10 = mysqli_query($conexao, "select * from pagamento where usuario_idUsuario = $idUsuario");
+                        $query10 = mysqli_query($connection, "select * from pagamento where usuario_idUsuario = $idUsuario");
                         $tem10 = mysqli_num_rows($query10);
                         if($tem10 > 0){
                             $_SESSION['temcartao'] = 1;
@@ -31,8 +31,8 @@ if ($_POST && $_GET && isset($_GET['page'])) {
 	} else {
 		header("Location: $pagina?mensagem=0");
 	}
-	if($conexao){
-		mysqli_close($conexao);
+	if($connection){
+		mysqli_close($connection);
 	}
 } else {
 	echo "parametros da pagina inválidos";

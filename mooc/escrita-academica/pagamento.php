@@ -8,14 +8,14 @@ if ($_POST) {
 	$statusPagamento = $_POST['statusPagamento'];
 	$usuario_idUsuario = $_POST['nomeUsuario'];
 	$idUsuarioSession = $_SESSION['idUsuario'];
-	$conexao = mysqli_connect('localhost', 'admin', 'admin', 'alexandria');
+	require_once ("../../conexao.php");
 
-	if ($conexao) {
-		$query = mysqli_query($conexao, "select * from pagamento where usuario_idUsuario = $idUsuarioSession");
+	if ($connection) {
+		$query = mysqli_query($connection, "select * from pagamento where usuario_idUsuario = $idUsuarioSession");
 		$tem = mysqli_num_rows($query);
 		if($tem == 0){
 			$sql = "INSERT INTO `pagamento` (`numeroCartao`, `cvv`, `validadeCartao`, `statusPagamento`, `usuario_idUsuario`) VALUES ('$numeroCartao', '$cvv', '$validadeCartao', '0', '$usuario_idUsuario')";
-				$CompraUser = mysqli_query($conexao,$sql);
+				$CompraUser = mysqli_query($connection,$sql);
 				header("location: index.php");				
 		}
 		else {

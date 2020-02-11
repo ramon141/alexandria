@@ -32,9 +32,7 @@
 		} else {
 			$_SESSION['perguntaAtual'] = 0;
 		}
-
-		    require_once '../conexao.php';
-		    $connection->set_charset("utf8");
+                    require_once ("../../conexao.php");
 		    $query = mysqli_query($connection, "select * from pergunta where modulo_idModulo = 1");
 		    $loop = 0;
 		    

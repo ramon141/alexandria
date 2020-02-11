@@ -17,7 +17,7 @@ if($_GET && isset($_GET['modulo'])){
     $modulo = 1;
 }
 
-require_once("conexao.php");
+require_once ("../../conexao.php");
 
 
 if ($connection) {

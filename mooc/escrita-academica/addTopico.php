@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST['nomeTopico']) && isset($_POST['areaDescricao'])){
-    require_once 'conexao.php';
+    require_once ("../../conexao.php");
     $dataAtual = date('Y-m-d');
     $nomeTopico = $_POST['nomeTopico'];
     $areaDescricao = $_POST['areaDescricao'];

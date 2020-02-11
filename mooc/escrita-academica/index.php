@@ -97,10 +97,10 @@ if(isset($_SESSION['temCartao'])){
                 <div class="single_courses">
                     <h3 style="color: #04D2C8;">Objetivo</h3>
                     <div style="text-align: justify;" >
-                    <p  style="color: black;">Já se perguntou como são feitos trabalhos acadêmicos de alta qualidade?</p>
-                    <p style="color: black;">Neste curso, resolveremos juntos o problema de desenvolver trabalhos acadêmicos que está causando estresse, dor de cabeça e desconforto na sua vida acadêmica. O MOOC de escrita acadêmica foi desenvolvido para que fosse facilmente assimilado por iniciantes. Está repleto de materiais e exemplos de trabalhos acadêmicos.
+                    <p  style="color: #777777; line-height: 26px;">Já se perguntou como são feitos trabalhos acadêmicos de alta qualidade?
+                    Neste curso, resolveremos juntos o problema de desenvolver trabalhos acadêmicos que está causando estresse, dor de cabeça e desconforto na sua vida acadêmica. O MOOC de escrita acadêmica foi desenvolvido para que fosse facilmente assimilado por iniciantes. Está repleto de materiais e exemplos de trabalhos acadêmicos.
+                    Adequado para acadêmicos iniciantes, através deste curso que contém 4 módulos e 12 horas de conteúdo, você aprenderá o fundamento básico da escrita acadêmica e estabelecerá um forte entendimento do conceito por trás dos gêneros e estilos acadêmicos. No fim do curso, você será capaz de desenvolver seus trabalhos com grande facilidade. 
                     </p>
-                    <p style="color: black;"> Adequado para acadêmicos iniciantes, através deste curso que contém 4 módulos e 12 horas de conteúdo, você aprenderá o fundamento básico da escrita acadêmica e estabelecerá um forte entendimento do conceito por trás dos gêneros e estilos acadêmicos. No fim do curso, você será capaz de desenvolver seus trabalhos com grande facilidade. </p>
                     </div>
                     <h3 class="second_title" style="color: #04D2C8;">Roteiro do Curso</h3>
                 </div>
@@ -113,7 +113,7 @@ if(isset($_SESSION['temCartao'])){
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div style=" padding: 1px 30px;">
+                                <div style=" padding: 1px 30px; color: #777777;">
                                     Neste módulo você irá aprender técnicas para leitura de textos, técnicas de estudo e como se organizar.
                                 </div>
                             </div>
@@ -125,7 +125,7 @@ if(isset($_SESSION['temCartao'])){
                                 </h5>
                             </div>
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                <div style=" padding: 1px 30px;">
+                                <div style=" padding: 1px 30px;color: #777777;">
                                   Neste módulo você irá aprender a produzir alguns tipos de textos acadêmicos como: resumo, fichamento, resenha, relatório e artigo.
                               </div>
                           </div>
@@ -138,7 +138,7 @@ if(isset($_SESSION['temCartao'])){
                             </h5>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                            <div style=" padding: 1px 30px;">
+                            <div style=" padding: 1px 30px;color: #777777;">
                                 Neste módulo você irá aprender as estruturas de textos científicos, como fazer citações, métodos científicos e tipos de pesquisa.
                             </div>
                         </div>
@@ -150,7 +150,7 @@ if(isset($_SESSION['temCartao'])){
                             </h5>
                         </div>
                         <div id="collapse_4" class="collapse" aria-labelledby="heading_4" data-parent="#accordion">
-                            <div style=" padding: 1px 30px;">
+                            <div style=" padding: 1px 30px;color: #777777;">
                                 Neste módulo extra você irá conhecer outros recursos como aspas e parênteses, e algumas ferramentas que podem ser usadas (fontes confiáveis e não confiáveis).
                             </div>
                         </div>
@@ -379,8 +379,3 @@ if(isset($_SESSION['temCartao'])){
 </body>
 
 </html>
-<?php
-if($con){
-  mysqli_close($con);
-}
-?>

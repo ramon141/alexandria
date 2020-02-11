@@ -3,7 +3,7 @@
     if(isset($_SESSION['nomeUsuario'])){
             $loginUser = $_SESSION['nomeUsuario'];
     }
-    require_once 'conexao.php';
+    require_once ("../../conexao.php");
     $query = mysqli_query($connection, "select * from topico_foruns");
 ?>
 

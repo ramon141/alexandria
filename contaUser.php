@@ -168,9 +168,3 @@ if(isset($_SESSION['emailUsuario'])){
             <script src="js/main.js"></script>
 </body>
 </html>
-
-<?php
-    if($con){
-        mysqli_close($con);
-    }
-?>

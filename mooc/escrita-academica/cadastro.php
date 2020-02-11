@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include_once("conexao.php");
+	require_once ("../../conexao.php");
 
 	$nomeUsuario        = $_POST['nomeUsuario'];
 	$sobrenomeUsuario   = $_POST['sobrenomeUsuario'];
