@@ -104,6 +104,10 @@ if($_GET && isset($_GET['id'])){
 		<div class="container">
 			<div class="outline_courses_info">
 				<h1 class="single_courses">Tópicos</h1>
+                                <form action="forum.php" method="post">
+                                    <input type="text" name="pesq">
+                                    <input type="submit" value="Buscar">
+                                </form>
 				<br>
 			</div>
 			<div>    

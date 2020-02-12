@@ -22,7 +22,6 @@ if(isset($_SESSION['nomeUsuario'])){
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/nice-select.css">
@@ -37,28 +36,8 @@ if(isset($_SESSION['nomeUsuario'])){
 <body>
 
     <!-- header-start -->
-    <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid p-0">
-                    <div class="row align-items-center no-gutters">
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo-img">
-                                <a href="index.php">
-                                    <img src="img/logoAlexandria.png" alt="Alexandria" style="width:80px;height:80px;">
-                                </a>
-                            </div>
-                        </div>
+
                          <?php include 'navbar.php' ?>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header-end -->
 
     <!-- slider_area_start -->
     <div class="slider_area ">
@@ -251,89 +230,6 @@ if(isset($_SESSION['nomeUsuario'])){
 </footer>
 <!-- footer -->
 
-<!-- form itself end-->
-<form id="test-form" class="white-popup-block mfp-hide" method="post" action="login.php?page=index.php">
-    <div class="popup_box ">
-        <div class="popup_inner">
-            <div class="logo text-center">
-                <a href="#">
-                    <img src="img/logoAlexandria.png" alt="" style="width:100px;height:100px;">
-                </a>
-            </div>
-            <h3>Login</h3>
-            <div class="row">
-                <div class="col-xl-12 col-md-12">
-                    <input type="email" name="emailUser" placeholder="email@example.com" ><br>
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <input type="password" name="senhaUser" placeholder="Digite sua senha"><br>
-                </div>
-                <div class="col-xl-12">
-                    <input type="submit" class="boxed_btn_orange" value="Login">
-                </div>
-
-                <?php 
-                if($_GET){
-                    if(strcmp($_GET['mensagem'] ."", "0") == 0){
-                        echo "
-                        <div class='col-xl-12'>
-                        <p style='color:red'>Usuário e/ou senha inválido</p>
-                        </div>";
-                    }
-                }
-                ?>
-            </div>
-            <p class="doen_have_acc">Não tem uma conta? 
-                <a class="dont-hav-acc" href="#test-form2">Cadastre-se</a> 
-            </p>
-        </div>
-    </div>
-</form>
-
-<!-- form itself end-->
-<form id="test-form2" class="white-popup-block mfp-hide" method="post" action="cadastro.php" >
-    <div class="popup_box ">
-        <div class="popup_inner">
-            <div class="logo text-center">
-                <a href="#">
-                    <img src="img/logoAlexandria.png" alt="" style="width:100px;height:100px;">
-                </a>
-            </div>
-            <h3>Cadastro</h3>
-            <div class="row">
-                <div class="col-md-6 col-xs-6">
-                    <input type="text" placeholder="Nome" name="nomeUsuario">
-                </div>
-                <div class="col-md-6 col-xs-6">
-                    <input type="text" placeholder="Sobrenome" name="sobrenomeUsuario">
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <input type="email" placeholder="Digite seu email" name="emailUsuario">
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <input type="password" placeholder="Senha" name="senhaUsuario">
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <input type="Password" placeholder="Confirmar senha" name="senhaConfirmar">
-                </div>
-                <div class="col-xl-12">
-                    <button type="submit" class="boxed_btn_orange">Cadastrar</button>
-                </div>
-                <?php 
-                if($_GET){
-                    if(strcmp($_GET['mensagem'] ."", "1") == 1){
-                        echo "
-                        <div class='col-xl-12'>
-                        <p style='color:red'>Senha Difente</p>
-                        </div>";
-                    }
-                }
-                ?>
-            </div>
-        </div>
-    </div>
-</form>
-<!-- form itself end -->
 
 
 <!-- JS here -->
