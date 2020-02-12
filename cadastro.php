@@ -31,16 +31,16 @@
 				$_SESSION['emailUsuario'] = $emailUsuario;
 				$_SESSION['senhaUsuario'] = $senhaUsuario;
 				$_SESSION['tipoUsuario']  = $tipoUsuario;
-				//header("location: index.php");
+				header("location: index.php");
 			}else{
 				echo "Verifique se todos os campos foram inseridos corretamente";
-				//header("location: index.php");
+				header("location: index.php");
 			} 
 		}
 		if($connection){ 
 			mysqli_close($connection);
 //			$_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso. Faça seu login</p>";
-//			header("Location: indAex.php");
+			header("Location: index.php");
 			echo "tem conexao";
 
 		}

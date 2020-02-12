@@ -3,18 +3,18 @@
 			<div class='main-menu d-none d-lg-block'>
 				<nav>
 					<ul id='navigation'>
-						<li><a href='index.php'>Início</a></li>
+						<li><a href='/alexandria/index.php'>Início</a></li>
 						<li><a href='#'>MOOC <i class='ti-angle-down'></i></a>
 							<ul class='submenu'>
 								<li><a href='mooc/escrita-academica/index.php'>Escrita Acadêmica</a></li>
 							</ul>
 						</li>
-						<li><a href='about.php'>Sobre</a></li>
+						<li><a href='/alexandria/about.php'>Sobre</a></li>
 						<li><a href='#'>blog <i class='ti-angle-down'></i></a>
 							<ul class='submenu'>
-								<li><a href='material-gratuito.php'>material gratuito</a></li>
-								<li><a href='analise.php'>Análise de Sistemas</a></li>
-								<li><a href='bd.php'>Banco de Dados</a></li>
+								<li><a href='/alexandria/material-gratuito.php'>material gratuito</a></li>
+								<li><a href='/alexandria/analise.php'>Análise de Sistemas</a></li>
+								<li><a href='/alexandria/bd.php'>Banco de Dados</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -28,8 +28,8 @@
 				<ul>
 					<li><a href='#'> $loginUser <i class='ti-angle-down'></i></a>
 						<ul class='submenu'>
-							<li><a href='contaUser.php'>Configuração de Conta</a></li>
-							<li><a href='logout.php'>Sair</a></li>
+							<li><a href='/alexandria/contaUser.php'>Configuração de Conta</a></li>
+							<li><a href='/alexandria/logout.php'>Sair</a></li>
 						</ul>
 					</li>
 				</ul>
