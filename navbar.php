@@ -1,3 +1,11 @@
+<?php
+if (!isset($_SESSION['usuario'])) {
+    session_start();
+}
+if (isset($_SESSION['nomeUsuario'])) {
+    $loginUser = $_SESSION['nomeUsuario'];
+}
+?>
 
 <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 <body>
@@ -37,8 +45,8 @@
 					<div class='row align-items-center no-gutters'>
 						<div class='col-xl-2 col-lg-2'>
 							<div class='logo-img'>
-								<a href='index.php'>
-									<img src='img/logoAlexandria.png' alt='Alexandria' style='width:80px;height:80px;'>
+								<a href='/alexandria/index.php'>
+									<img src='/alexandria/img/logoAlexandria.png' alt='Alexandria' style='width:80px;height:80px;'>
 								</a>
 							</div>
 						</div>
@@ -53,6 +61,7 @@
 											</ul>
 										</li>
 										<li><a href='/alexandria/about.php'>Sobre</a></li>
+                                                                                <li><a href='/alexandria/contatar/contact.php'>Contate-nos</a></li>
 										<li><a href='#'>blog <i class='ti-angle-down'></i></a>
 											<ul class='submenu'>
 												<li><a href='/alexandria/material-gratuito.php'>material gratuito</a></li>
@@ -252,7 +261,7 @@
     <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="TitulomodalLogin" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form class="form-horizontal" action="/alexandria/login.php?page=<?=$_SERVER['REQUEST_URI'];?>" method="post">
+                <form class="form-horizontal" action="/alexandria/login.php?page=<?= $_SERVER['REQUEST_URI']; ?>" method="post">
                     <div class="modal-header">
                         <h5 class="modal-title" id="TitulomodalLogin" style="float: left; margin-left: 44%;" >Entrar</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
