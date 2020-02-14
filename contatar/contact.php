@@ -1,3 +1,24 @@
+<?php
+    if($_GET){
+            if(strcmp($_GET['sucesso'] ."", "1") == 0){
+                    echo "<script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+                              <script type='text/javascript' src='js/bootstrap.js'></script>
+                              <script type='text/javascript'>
+                              $(window).load(function() {
+                                  $('#success').modal('show');
+                              });
+                              </script>";
+            } else {
+                echo "<script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+                              <script type='text/javascript' src='js/bootstrap.js'></script>
+                              <script type='text/javascript'>
+                              $(window).load(function() {
+                                  $('#error').modal('show');
+                              });
+                              </script>";
+            }
+    }
+?>
 <!doctype html>
 <html lang="pt">
     <head>
