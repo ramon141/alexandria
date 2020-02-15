@@ -25,8 +25,8 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>Nexus SaaS</title>
+        <link rel="icon" href="/alexandria/img/alexandria-logo.jpeg" type="image/png">
+        <title>Alexandria - Contato</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -58,7 +58,7 @@
                             </div>
                             <div class="info_item">
                                 <i class="lnr lnr-phone-handset"></i>
-                                <h6><a href="#">(93) 992056-537 </a></h6>
+                                <h6><a href="#">(93) 9120-4052</a></h6>
                                 <p>Seg a Sex, 07:00 às 22:00</p>
                             </div>
                             <div class="info_item">

@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-
+$quatRespostas = 0;
 session_start();
 if (isset($_SESSION['nomeUsuario'])) {
     $loginUser = $_SESSION['nomeUsuario'];
@@ -8,10 +8,13 @@ if (isset($_SESSION['nomeUsuario'])) {
 require_once ("../../conexao.php");
 if ($_POST && isset($_POST['pesq'])) {
     $pesq = $_POST['pesq'];
-    $query = mysqli_query($connection, "select * from topico_foruns where pergunta LIKE '%$pesq%'");
+
+    $query = mysqli_query($connection, "select * from vforumcomresposta where pergunta like '%$pesq%' or respostaTopico like '%$pesq%' or nomeTopico = '%$pesq%'");
     $quatRespostas = mysqli_num_rows($query);
+    $query11 = mysqli_query($connection, "select * from vforumsemresposta where pergunta LIKE '%$pesq%' or nomeTopico LIKE '%$pesq%'");
+    $quatRespostas = $quatRespostas + mysqli_num_rows($query11);
 } else {
-    $query = mysqli_query($connection, "select * from topico_foruns");
+    $query = mysqli_query($connection, "select * from vforumcomresposta limit 10");
 }
 if ($_GET && isset($_GET['id'])) {
     $idTopico = $_GET['id'];
@@ -51,8 +54,27 @@ if ($_GET && isset($_GET['id'])) {
 
     <body>
         <!-- header-start -->
-
-        <?php include 'navbar2.php' ?>
+        <header>
+            <div class="header-area ">
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container-fluid p-0">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo-img">
+                                    <a href="index.php">
+                                        <img src="img/logoAlexandria.png" alt="Alexandria" style="width:80px;height:80px;">
+                                    </a>
+                                </div>
+                            </div>
+                            <?php include 'navbar2.php' ?>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
         <!-- header-end -->
 
         <!-- bradcam_area_start -->
@@ -82,38 +104,59 @@ if ($_GET && isset($_GET['id'])) {
         <div class="courses_details_info">
             <div class="container">
                 <div class="outline_courses_info">
-                    <h1 class="single_courses">Tópicos</h1>
                     <form action="forum.php" method="post">
-                        <input type="text" name="pesq">
-                        <input type="submit" value="Buscar">
-                    </form>
+                        <h1 class="single_courses">
+                            <div class="input-group mb-3">Tópicos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="text"  class="form-control" name="pesq" style="height: 50px;" placeholder="Digite o que deseja" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Buscar</button>
+                                </div>
+                            </div>
+                        </h1></form>    
+
                     <br>
                 </div>
                 <div>    
                     <?php
                     while ($fetch = mysqli_fetch_array($query)) {
-                        echo "<h4 style='color: #04D2C8;'><a href='forum.php?id=$fetch[0]'>$fetch[1]</a></h4>";
+                        echo "<h4 style='color: #04D2C8;'><a href='forum.php?id=$fetch[0]'>$fetch[1] [RESPONDIDO]</a></h4>";
                     }
-                    $query = mysqli_query($connection, "select * from topico_foruns where idTopico = $idTopico");
+                    if (isset($query11)) {
+                        while ($fetch1 = mysqli_fetch_array($query11)) {
+                            echo "<h4 style='color: #04D2C8;'><a href='forum.php?id=$fetch1[0]'>$fetch1[1]</a></h4>";
+                        }
+                    }
+                    $query = mysqli_query($connection, "select * from vforumcomresposta where idTopico = $idTopico");
                     ?>
 
                 </div>
                 <br><br>
                 <hr>
                 <div>
-                    <h2>RESPOSTAS</h2>
                     <?php
-                    while ($fetch = mysqli_fetch_array($query)) {
-                        $var = "";
-                        $query2 = mysqli_query($connection, "select * from resposta_topico");
-                        while ($fetch2 = mysqli_fetch_array($query2)) {
-                            if ($fetch[0] == $fetch2[3]) {
+                    if ($quatRespostas > 0) {
+                        echo "<h2>RESPOSTAS</h2>";
+
+
+                        if (mysqli_num_rows($query) > 0) {
+                            while ($fetch = mysqli_fetch_array($query)) {
                                 echo "<div>
-							<label style='color: black;' for='textarea'>Tópico: $fetch[1]</label><br>
+							<label style='color: black;' for=''>Tópico: $fetch[1]</label><br>
 							Descrição: $fetch[2]
-							<label style='color: #4682b4;' for='textarea'>Postado: $fetch[3]</label>
+							<label style='color: #4682b4;' for=''>Postado: $fetch[3]</label>
 							<br>
-							<p style='color: #4682b4; margin: 10px 30px;'> Resposta Alexandria: <span style='color: black;'>$fetch2[1] </span> </p>
+							<p style='color: #4682b4; margin: 10px 30px;'> Resposta Alexandria: <span style='color: black;'>" . $fetch['respostaTopico'] . "</span> </p>
+							</div><br>";
+                            }
+                        } else {
+                            $query123 = mysqli_query($connection, "select * from vforumsemresposta where idTopico = '$idTopico'");
+                            while ($fetch5 = mysqli_fetch_array($query123)) {
+                                echo "<div>
+							<label style='color: black;' for=''>Tópico: $fetch5[1]</label><br>
+							Descrição: $fetch[2]
+							<label style='color: #4682b4;' for=''>Postado: $fetch5[3]</label>
+							<br>
+							<p style='color: #4682b4; margin: 10px 30px;'> Resposta Alexandria: <span style='color: black;'>Este tópico ainda não possui resposta😥😰</span> </p>
 							</div><br>";
                             }
                         }
@@ -123,20 +166,20 @@ if ($_GET && isset($_GET['id'])) {
                 </div>
                 <br><br>
                 <div>
-                    <h3>Adicione um Tópico</h3>
+                    <h3>Tire sua dúvida</h3>
                     <form action="addTopico.php" method="POST">
                         <div class="form-group">
                             <label style="color: #4682b4;" for="textinput">Nome do Tópico</label>  
                             <input style="width: 50%;" id="nomeTopic" name="nomeTopico" type="text" placeholder="Nome" class="form-control input-md">
                         </div>
                         <div class="form-group">
-                            <label style="color: #4682b4;" for="textarea">Faça uma descrição</label>
-                            <input style="width: 50%;" class="form-control" id="textarea" name="areaDescricao" placeholder="Escreva aqui..." input>
+                            <label style="color: #4682b4;" for="textarea">Descreva sua pergunta</label>
+                            <textarea style="width: 50%;" class="form-control" id="textarea" name="areaDescricao" placeholder="Tente ser o mais objetivo possível" input></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" style="width: 20%; background-color: #4682b4;" id="btPubli" name="btPublicar" class="btn btn-primary">Enviar</button>
                         </div>
-                    </form>    
+                    </form>
                 </div>
             </div>
         </div>

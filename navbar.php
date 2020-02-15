@@ -1,9 +1,15 @@
 <?php
-if (!isset($_SESSION['usuario'])) {
+if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 if (isset($_SESSION['nomeUsuario'])) {
     $loginUser = $_SESSION['nomeUsuario'];
+}
+
+if (isset($_SESSION['statusPagamento'])) {
+    $statusPagamento = $_SESSION['statusPagamento'];
+} else {
+    $statusPagamento = 0;
 }
 ?>
 
@@ -62,17 +68,23 @@ if (isset($_SESSION['nomeUsuario'])) {
 										</li>
 										<li><a href='/alexandria/about.php'>Sobre</a></li>
                                                                                 <li><a href='/alexandria/contatar/contact.php'>Contate-nos</a></li>
+                                                                                
 										<li><a href='#'>blog <i class='ti-angle-down'></i></a>
 											<ul class='submenu'>
 												<li><a href='/alexandria/material-gratuito.php'>material gratuito</a></li>
 												<li><a href='/alexandria/analise.php'>Análise de Sistemas</a></li>
 												<li><a href='/alexandria/bd.php'>Banco de Dados</a></li>
 											</ul>
-										</li>
+										</li>";
+    if (strcmp($statusPagamento, "1") == 0) {
+        echo "<li><a href='/alexandria/mooc/escrita-academica/forum.php'>Fórum</a></li>";
+    }
+    echo"
 									</ul>
 								</nav>
 							</div>
-						</div> ";
+    </div> ";
+
     if (isset($loginUser)) {
         echo "
 						<div class='col-xl-3 col-lg-3'>
@@ -186,7 +198,7 @@ if (isset($_SESSION['nomeUsuario'])) {
             <div class="modal-content">
                 <form class="form-horizontal" action="/alexandria/cadastro.php" method="post">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="TitulomodalLogin" style="float: left; margin-left: 44%;" >Entrar</h5>
+                        <h5 class="modal-title" id="TitulomodalLogin" style="float: left; margin-left: 38%;" >Cadastrar</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                         </button>
