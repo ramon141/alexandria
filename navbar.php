@@ -302,7 +302,25 @@ if (isset($_SESSION['statusPagamento'])) {
 
                                 </div>
                             </div>
-
+                            
+                            <div align="center">
+                                <a href="/alexandria/contatar/sendMail.php">Esqueci minha senha</a>
+                            </div>
+                            
+                             <?php
+							if($_GET){
+								if(strcmp($_GET['mensagem'] ."", "0") == 0){
+									echo "<script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+										  <script type='text/javascript' src='js/bootstrap.js'></script>
+										  <script type='text/javascript'>
+										  $(window).load(function() {
+										      $('#modalLogin').modal('show');
+										  });
+										  </script>";
+										  echo "<br><tag style='float: left; margin-left: 28%;color:red;'>Usuário e/ou senha inválido(s)</tag><br><br>";
+								}
+							}
+						?>
                         </fieldset>
 
 

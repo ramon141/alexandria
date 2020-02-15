@@ -16,6 +16,10 @@ if ($_POST && $_GET && isset($_GET['page'])) {
 //            echo "<br> Login efetuado com sucesso";
             while ($fetch = mysqli_fetch_row($buscarUser)) {
                 $_SESSION ['nomeUsuario'] = $fetch[1];
+                $_SESSION ['idUsuario'] = $fetch[0];
+                $_SESSION ['sobrenomeUsuario'] = $fetch[2];
+                $_SESSION ['senhac'] = $fetch[4];
+                $_SESSION ['senhas'] = $senhaUsuario;
                 $idUsuario = $fetch[0];
             }
             $query10 = mysqli_query($connection, "select * from pagamento where usuario_idUsuario = $idUsuario");
@@ -26,13 +30,13 @@ if ($_POST && $_GET && isset($_GET['page'])) {
                 //verificar se o cara pagou
 
                 while ($fetch11 = mysqli_fetch_row($query10)) {
-                     $dataBD = $fetch11[3];
+                    $dataBD = $fetch11[3];
                 }
-                $dataAdd = date('Y-m-d', strtotime($dataBD. ' + 1 month'));
+                $dataAdd = date('Y-m-d', strtotime($dataBD . ' + 1 month'));
                 $dataAtual = date('Y-m-d');
-                echo $dataAtual."atual<br>";
-                echo $dataAdd."add<br>";
-                if($dataAtual <= $dataAdd){
+                echo $dataAtual . "atual<br>";
+                echo $dataAdd . "add<br>";
+                if ($dataAtual <= $dataAdd) {
                     $_SESSION['statusPagamento'] = 1;
                 } else {
                     $_SESSION['statusPagamento'] = 0;
@@ -43,10 +47,18 @@ if ($_POST && $_GET && isset($_GET['page'])) {
 
             header("location: $pagina");
         } else {
-            header("Location: $pagina?mensagem=0");
+            if (endsWith($pagina, "?mensagem=0")) {
+                header("Location: $pagina");
+            } else {
+                header("Location: $pagina?mensagem=0");
+            }
         }
     } else {
-        header("Location: $pagina?mensagem=0");
+        if (endsWith($pagina, "?mensagem=0")) {
+            header("Location: $pagina");
+        } else {
+            header("Location: $pagina?mensagem=0");
+        }
     }
     if ($connection) {
         mysqli_close($connection);
@@ -54,4 +66,14 @@ if ($_POST && $_GET && isset($_GET['page'])) {
 } else {
     echo "parametros da pagina inválidos";
 }
+
+function endsWith($haystack, $needle) {
+    $length = strlen($needle);
+    if ($length == 0) {
+        return true;
+    }
+
+    return (substr($haystack, -$length) === $needle);
+}
+
 ?>

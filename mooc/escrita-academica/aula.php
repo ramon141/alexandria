@@ -1,7 +1,22 @@
 <?php
 session_start();
 if (isset($_SESSION['nomeUsuario'])) {
+
     $loginUser = $_SESSION['nomeUsuario'];
+    
+} 
+
+if (strcmp($_SESSION['statusPagamento'], "1")==0 ) {
+    $pagou = $_SESSION['statusPagamento'];
+}else {
+    session_start();
+    if(!$_SESSION){
+            header("Location: ../../acessNegado.php");
+    } else {
+        if(!strcmp($_SESSION['login'], "ok") == 0){
+            header("Location: ../../acessNegado.php");
+        }
+    }
 }
 
 if ($_GET && isset($_GET['modulo'])) {
