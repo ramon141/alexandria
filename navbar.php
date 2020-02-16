@@ -37,53 +37,82 @@ if (isset($_SESSION['statusPagamento'])) {
     <link rel="stylesheet" href="/alexandria/css/slicknav.css">
     <link rel="stylesheet" href="/alexandria/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <style>
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                position: absolute;
+                transform: translate3d(5px, 28px, 0px); /* distancia entre menu e btn */
+                top: 0px;
+                left: 0px;
+                will-change: transform;
+            }
+            .dropdown {
+                display: inline-block; /* deixa o LO do "tamanho do próprio texto" e não da largura inteira da tela*/
+                list-style: none; /* rita a "bolinha" do LI*/
+            }
+
+        </style>
 
 
     <?php
-    echo"
-	<header>
-		<div class='header-area' style='background-color: #00A0EF;'>
-			<div id='sticky-header' class='main-header-area'>
-				<div class='container-fluid p-0'>
-					<div class='row align-items-center no-gutters'>
-						<div class='col-xl-2 col-lg-2'>
-							<div class='logo-img'>
-								<a href='/alexandria/index.php'>
-									<img src='/alexandria/img/logoAlexandria.png' alt='Alexandria' style='width:80px;height:80px;'>
-								</a>
-							</div>
-						</div>
-						<div class='col-xl-7 col-lg-7'>
-							<div class='main-menu d-none d-lg-block'>
-								<nav>
-									<ul id='navigation'>
-										<li><a href='/alexandria/index.php'>Início</a></li>
-										<li><a href='#'>MOOC <i class='ti-angle-down'></i></a>
-											<ul class='submenu'>
-												<li><a href='/alexandria/mooc/escrita-academica/index.php'>Escrita Acadêmica</a></li>
-											</ul>
-										</li>
-										<li><a href='/alexandria/about.php'>Sobre</a></li>
-                                                                                <li><a href='/alexandria/contatar/contact.php'>Contate-nos</a></li>
-                                                                                
-										<li><a href='#'>blog <i class='ti-angle-down'></i></a>
-											<ul class='submenu'>
-												<li><a href='/alexandria/material-gratuito.php'>material gratuito</a></li>
-												<li><a href='/alexandria/analise.php'>Análise de Sistemas</a></li>
-												<li><a href='/alexandria/bd.php'>Banco de Dados</a></li>
-											</ul>
-										</li>";
+    echo '<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient(to right, rgb(73, 206, 201), rgb(70, 130, 180));">
+            <a class="navbar-brand" href="#"><img src="http://localhost/alexandria/img/logoAlexandria.png" width="50" height="50"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Início</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            MOOC
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Escrita Acadêmica</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contate-nos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Teste</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Blog
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Material Gratuito</a>
+                            <a class="dropdown-item" href="#">Análise de Sistemas</a>
+                            <a class="dropdown-item" href="#">Banco de Dados</a>
+                        </div>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><span class="btn badge-info">Login</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="btn badge-info">Cadastrar</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>';
+    
     if (strcmp($statusPagamento, "1") == 0) {
         echo "<li><a href='/alexandria/mooc/escrita-academica/forum.php'>Fórum</a></li>";
     }
-    echo"
-									</ul>
-								</nav>
-							</div>
-    </div> ";
 
     if (isset($loginUser)) {
         echo "
@@ -106,7 +135,7 @@ if (isset($_SESSION['statusPagamento'])) {
 									
 										<button type='button' class='btn' style='color: white;' data-toggle='modal' data-target='#modalLogin'>Entrar</button>
 									
-									<a data-toggle='modal' data-target='#modalCadastro' class='login popup-with-form'>
+									<a data-toggle='modal' data-target='#modalCadastro' class=''>
 										<span class='boxed_btn_orange'>Cadastrar</span>
 									</a>
                                                                         
