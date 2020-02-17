@@ -155,7 +155,7 @@ if ($_GET && isset($_GET['id'])) {
                 <hr>
                 <div>
                     <?php
-                    if ($quatRespostas > 0) {
+                    if ($_GET && isset($_GET['id'])) {
                         echo "<h2>RESPOSTAS</h2>";
 
 

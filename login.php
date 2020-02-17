@@ -45,7 +45,12 @@ if ($_POST && $_GET && isset($_GET['page'])) {
                 //fim do "verificar se o cara pagou"
             }
 
-            header("location: $pagina");
+            if (endsWith($pagina, "?mensagem=0")) {
+                header("Location: " . substr($pagina, 0, -11));
+            } else {
+                header("Location: $pagina");
+            }
+            
         } else {
             if (endsWith($pagina, "?mensagem=0")) {
                 header("Location: $pagina");
