@@ -11,6 +11,18 @@ if (isset($_SESSION['nomeUsuario'])) {
 <html class="no-js" lang="zxx">
 
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158692559-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-158692559-1');
+        </script>
+
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Alexandria</title>
@@ -50,9 +62,11 @@ if (isset($_SESSION['nomeUsuario'])) {
 
     <body>
 
-        <!-- header-start -->
+        <!-- navbar-start -->
 
-        <?php include 'navbar.php' ?>
+            <?php include 'navbar.php' ?>
+            
+        <!-- navbar-ends -->
 
         <!-- slider_area_start -->
         <div class="slider_area ">

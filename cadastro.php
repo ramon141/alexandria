@@ -21,9 +21,10 @@ if ($senhaConfirmar != $senhaUsuario) {
     if (mysqli_num_rows($query) == 1) {
         //echo "Email já cadastrado";
     } else {
-        echo $senhaUsuario."<br>";
+        echo $senhaUsuario . "<br>";
+        $senhas = $senhaUsuario;
         $senhaUsuario = md5($senhaUsuario);
-        echo $senhaUsuario."<br>";
+        echo $senhaUsuario . "<br>";
         $query = mysqli_query($connection, "INSERT INTO usuario (nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, tipoUsuario) values ('$nomeUsuario', '$sobrenomeUsuario', '$emailUsuario', '$senhaUsuario', '$tipoUsuario')");
 
         //echo "INSERT INTO usuario (nomeUsuario, sobrenomeUsuario, emailUsuario, senhaUsuario, tipoUsuario) values ('$nomeUsuario', '$sobrenomeUsuario', '$emailUsuario', '$senhaUsuario', '$tipoUsuario')";
@@ -34,6 +35,13 @@ if ($senhaConfirmar != $senhaUsuario) {
             $_SESSION['sobrenomeUsuario'] = $sobrenomeUsuario;
             $_SESSION['emailUsuario'] = $emailUsuario;
             $_SESSION['senhaUsuario'] = $senhaUsuario;
+            $_SESSION ['senhac'] = $senhaUsuario;
+            
+            
+            
+            
+            $_SESSION ['sobrenomeUsuario'] = $sobrenomeUsuario;
+            $_SESSION ['senhas'] = $senhas;
             $_SESSION['tipoUsuario'] = $tipoUsuario;
             header("location: index.php");
         } else {

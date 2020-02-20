@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+        <title>Site em manutenção</title>
+        <meta charset="utf-8">
+        <style>
+            .barra-progresso{width: 406px;height: 24px;background-color: #bbb;border-radius: 13px;padding: 5px;}
+            .porcentagem{width: 100%;height: 24px;border-radius: 10px;background-color: dodgerblue;}
+        </style>
+        <script>
+            function contagem() {
+                timer = 60 * 60 * 60;
+                return function () {
+                    var minutos,
+                            segundos;
+
+                    minutos = Math.floor(timer / 60);
+                    segundos = timer % 60 <= 9 ? '0' + timer % 60 : timer % 60;
+                    document.getElementById('mostracontagem').innerHTML = minutos + ':' + segundos;
+                    timer--;
+                    if (timer < 0)
+                        clearInterval(comeca);
+                }
+            }
+
+            var start = contagem()
+            var comeca = setInterval(start, 1000);
+        </script>
+    </head>
+    <body style="background-color: #56C8E2;">
+        
+            
+        <p style="font-family: cursive" ><img src="manu.png" align="left"><br><br><br><br><br><br><br><br>
+            <img src="img/logoAlexandria.png" width="100px" height="100px"/><br>
+            <br>
+            Nosso site está atualmente em manutenção. Pedimos desculpas pelo incômodo.
+            Voltaremos em breve.
+        <div class="barra-progresso" style="float:top; margin-left: 65%;">
+            <div class="porcentagem" id="progresso-da-barra"></div>
+            <br><div id="mostracontagem"></div></div>
+    </p>
+
+</body>
+</html>

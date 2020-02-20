@@ -36,27 +36,9 @@ if(isset($_SESSION['nomeUsuario'])){
 
 <body>
     <!-- header-start -->
-    <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid p-0">
-                    <div class="row align-items-center no-gutters">
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo-img">
-                                <a href="index.php">
-                                    <img src="img/logoAlexandria.png" alt="Alexandria" style="width:80px;height:80px;">
-                                </a>
-                            </div>
-                        </div>
+    
                          <?php include 'navbar.php' ?>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    
     <!-- header-end -->
 
     <!-- bradcam_area_start -->

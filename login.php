@@ -45,21 +45,21 @@ if ($_POST && $_GET && isset($_GET['page'])) {
                 //fim do "verificar se o cara pagou"
             }
 
-            if (endsWith($pagina, "?mensagem=0")) {
+            if (endsWith($pagina, "?mensagem")) {
                 header("Location: " . substr($pagina, 0, -11));
             } else {
                 header("Location: $pagina");
             }
             
         } else {
-            if (endsWith($pagina, "?mensagem=0")) {
+            if (endsWith($pagina, "?mensagem")) {
                 header("Location: $pagina");
             } else {
                 header("Location: $pagina?mensagem=0");
             }
         }
     } else {
-        if (endsWith($pagina, "?mensagem=0")) {
+        if (endsWith($pagina, "?mensagem")) {
             header("Location: $pagina");
         } else {
             header("Location: $pagina?mensagem=0");
@@ -77,8 +77,7 @@ function endsWith($haystack, $needle) {
     if ($length == 0) {
         return true;
     }
-
-    return (substr($haystack, -$length) === $needle);
+    return (substr(substr($haystack, 0, -2), -$length, $length) === $needle);
 }
 
 ?>
