@@ -182,6 +182,7 @@ if (isset($_SESSION['statusPagamento'])) {
                             </div>
                             <label style= "color: #4682b4;" for="lname">E-mail</label> <br> 
                             <input type="text" class="form-control input-lg" id="email" name="emailUsuario" placeholder="email@example.com" required><br>
+                            <input value="<?= $_SERVER['REQUEST_URI']; ?>" type="hidden" name="pagina">
                             <label style= "color: #4682b4;" for="fname"> Criar Senha</label> <br> 
                             <input type="password" class="form-control input-lg" id="senha" name="senhaUsuario" placeholder="Digite sua senha" required><br>
                             <label style= "color: #4682b4;" for="fname">Confirmar Senha</label> <br> 

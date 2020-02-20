@@ -20,10 +20,11 @@ if (!$connection) {
     $data = json_decode($output);
 
     $so = $data->os_type;
-    if(strtolower($so) == "windows"){
-        $connection = mysqli_connect('localhost', 'admin', 'admin', 'alexandria');
-    } else {
+    if(strcmp(strtolower($so),"windows") == 0){
         $connection = mysqli_connect('localhost:3308', 'root', '', 'alexandria');
+    } else {
+        
+        $connection = mysqli_connect('localhost', 'admin', 'admin', 'alexandria');
     }
 }
 $connection->set_charset("utf8");
