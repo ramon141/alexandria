@@ -10,15 +10,15 @@ if (isset($_SESSION['nomeUsuario'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Acesso Negado - Alexandria</title>
+	<title>Acesso Negado</title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	
+	<title>Alexandria</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- <link rel="manifest" href="site.webmanifest"> -->
-	<link rel="shortcut icon" type="image/x-icon" href="/alexandria/img/alexandria-logo.jpeg">
+	<link rel="shortcut icon" type="image/x-icon" href="img/alexandria-logo.jpeg">
 	<!-- Place favicon.ico in the root directory -->
 
 	<!-- CSS here -->
