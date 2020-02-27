@@ -71,8 +71,10 @@ if ($connection) {
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/gijgo.css">
         <link rel="stylesheet" href="css/animate.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="css/slicknav.css">
         <link rel="stylesheet" href="css/style.css">
+
         <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     </head>
 
@@ -147,12 +149,16 @@ if ($connection) {
                                         </li>
                                     </ul>
                                 </figcaption>
-                                <div style="margin: 20px 6px;">
-
+                                <div id="idvideo" style="margin: 20px 6px;">
                                     <video id="player" playsinline controls style="width: 100%; height: 100%;" src="">
                                     </video>
-
                                     <!--<iframe width="100%" height="400" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="ifrma_video1">jnerjgnjn</iframe>-->
+                                </div>
+
+                                <div id="divplayeraudio" style="margin: 20px 6px;">
+                                    <audio id="playeraudio" controls>
+                                        <source src="http://dl71.y2mate.com/?file=M3R4SUNiN3JsOHJ6WWQ2a3NQS1Y5ZGlxVlZIOCtyZ1F0L3NmOUZzQ0w0OEhqOFppbk1DQkRlcHFaWW9nNDZHSEtKVVJwMmIzVi9haUV5YW9tdE1RYTFlazJKTnY0QURlbzRZNVlQNWFiakNvcXFpdWhtSXdqdzc1ZStmZEZLeGVNRElwaFZsc3hqS0d6dlNSNnpQMW95N285V3ZRS1hZc3Eya0dQT0hWdjV4SDJDS0dKT1ByM1pVV2tpZVI1cVZBNWZTY3VnTHovTDh4dHRkd1IzdDdkWlpVMnBQMDA4L2FyRU1jajZZTmlrVzlrTldOUHJobExldVRhV1EyUFM0QTdPSDdkU3REbm5aUHRqdnN1UFo5b0RkZE42VnQrR3VtL09iZ2F6ckZMNWV1SGNuVmZMemw4b1BxOUtSeXFSST0%3D" type="audio/mp3" />
+                                    </audio>
                                 </div>
                                 <div>
                                     <button style=" background-color: #04D2C8;" id="btn_video" 
@@ -172,8 +178,29 @@ if ($connection) {
         </section>
 
 
-
         <!--================Blog Area =================-->
+
+
+        <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="../../questionario/questionario1.php" ></iframe>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- footer -->
         <footer style="background-color: #4682b4;" class="footer">
@@ -353,18 +380,25 @@ for ($i = 0; $i < $qua; $i++) {
                     var botaoVideo = document.getElementById("player");
                     botaoVideo.innerHTML = (videosVetor[videoAtual + 1]);
                     botaoVideo.src = (videosVetorSRC[videoAtual + 1]);
+                    $('#divplayeraudio').hide();
+                    $('#idvideo').show();
                     videoAtual++;
                     alteraImagem();
                 } else {
                     if ((videoAtual + 1) == <?php echo "$qua"; ?>) {
-                        var botaoVideo = document.getElementById("ifrma_video1");
-                        botaoVideo.src = audio + "";
+                        //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
+
+                        $('#divplayeraudio').show();
+                        $('#idvideo').hide();
                         videoAtual++;
+                        //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
                         podcastM1();
                     } else if (videoAtual == <?php echo "$qua"; ?>) {
+                        //alert("questionario");
                         videoAtual++;
-                        var botaoVideo = document.getElementById("ifrma_video1");
-                        botaoVideo.src = "../../questionario/questionario<?php echo $modulo; ?>.php";
+                        $("#modalForm").modal();
+                        //var botaoVideo = document.getElementById("ifrma_video1");
+                        //botaoVideo.src = "../../questionario/questionario<?php echo $modulo; ?>.php";
                         questionario();
                     }
                 }
@@ -376,10 +410,15 @@ for ($i = 0; $i < $qua; $i++) {
                     botaoVideo.innerHTML = (videosVetor[videoAtual - 1]);
                     botaoVideo.src = (videosVetorSRC[videoAtual - 1]);
                     videoAtual--;
+                    $('#divplayeraudio').hide();
+                    $('#idvideo').show();
                     alteraImagem();
                 } else if (videoAtual > <?php echo "$qua"; ?>) {
-                    var botaoVideo = document.getElementById("ifrma_video1");
-                    botaoVideo.src = audio + "";
+                    //alert("audio");
+                    //var botaoVideo = document.getElementById("ifrma_video1");
+                    //botaoVideo.src = audio + "";
+                    $('#divplayeraudio').show();
+                    $('#idvideo').hide();
                     videoAtual--;
                     podcastM1();
                 }
@@ -431,13 +470,16 @@ for ($i = 1; $i <= $qua; $i++) {
     <script>
 
         document.getElementById("player").innerHTML = videosVetor[0];
-
+        $(document).ready(function () {
+            $('#divplayeraudio').hide();
+        });
 
     </script>
 
     <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
     <script>
         const player = new Plyr('#player');
+        const playeraudio = new Plyr('#playeraudio');
     </script>
 </body>
 </html>
