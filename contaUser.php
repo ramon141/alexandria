@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(!$_SESSION){
-            header("Location: acessNegado.php");
+            header("Location: acessNegado");
     } else {
         if(!strcmp($_SESSION['login'], "ok") == 0){
-            header("Location: acessNegado.php");
+            header("Location: acessNegado");
         }
     }
 if (isset($_SESSION['nomeUsuario'])) {
@@ -57,7 +57,7 @@ if (isset($_SESSION['emailUsuario'])) {
                     <div class="col-xl-12">
                         <div class="section_title mb-100">
                             <fieldset style="width:70%;">
-                                <form method="POST" action="editDate.php">
+                                <form method="POST" action="editDate">
                                     <br> 
                                     <h2>Informações de Perfil</h2> <span style="color: red;">*Qualquer campo não preenchido será mantida a informação anterior</span> <br>
                                     <br>
@@ -90,7 +90,7 @@ if (isset($_SESSION['emailUsuario'])) {
                                 <br> <h2>Excluir Conta</h2>
                                 <p>Encerre sua conta permanentemente.</p> <br>
                                 <p>Aviso: Se encerrar sua conta, você será descadastrado de seu curso e perderá o acesso para sempre.</p>
-                                <a href="editDate.php?m=d">
+                                <a href="editDate?m=d">
                                     <input  class="btn btn-danger" type="submit" name="nomeConf" value="Excluir Conta" >
                                 </a>
                             </fieldset>

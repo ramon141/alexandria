@@ -9,10 +9,10 @@ if (strcmp($_SESSION['statusPagamento'], "1") == 0) {
     $pagou = $_SESSION['statusPagamento'];
 } else {
     if (!$_SESSION) {
-        header("Location: ../../acessNegado.php");
+        header("Location: ../../acessNegado");
     } else {
         if (!strcmp($_SESSION['login'], "ok") == 0) {
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
         }
     }
 }
@@ -24,7 +24,7 @@ if ($_GET && isset($_GET['modulo'])) {
         alert('Este módulo ainda encontra-se bloqueado');
         </script>"
         ;
-        header("Location: aula.php?modulo=1");
+        header("Location: aula?modulo=1");
     }
 } else {
     $modulo = 1;
@@ -120,7 +120,7 @@ if ($connection) {
                                     <?php
                                     $queryModulo = mysqli_query($connection, "select * from modulo");
                                     while ($fetchModulo = mysqli_fetch_array($queryModulo)) {
-                                        echo '<li><button onclick="window.location.href = \'aula.php?modulo=' . $fetchModulo['idModulo'] . '\'" id ="modulo' . $fetchModulo['idModulo'] . '" class="boxed_btn" style=" color: black; width:220px; border-radius: 0px; padding: 10px 25px;';
+                                        echo '<li><button onclick="window.location.href = \'aula?modulo=' . $fetchModulo['idModulo'] . '\'" id ="modulo' . $fetchModulo['idModulo'] . '" class="boxed_btn" style=" color: black; width:220px; border-radius: 0px; padding: 10px 25px;';
                                         if ($modulo == $fetchModulo['idModulo']) {
                                             echo 'color: white;';
                                         } echo '">' . $fetchModulo['nome'] . '</button></li>';
@@ -191,7 +191,7 @@ if ($connection) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <iframe src="../../questionario/questionario1.php" ></iframe>
+                        <iframe src="../../questionario/questionario1" ></iframe>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -398,7 +398,7 @@ for ($i = 0; $i < $qua; $i++) {
                         videoAtual++;
                         $("#modalForm").modal();
                         //var botaoVideo = document.getElementById("ifrma_video1");
-                        //botaoVideo.src = "../../questionario/questionario<?php echo $modulo; ?>.php";
+                        //botaoVideo.src = "../../questionario/questionario<?php echo $modulo; ?>";
                         questionario();
                     }
                 }

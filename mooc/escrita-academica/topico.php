@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(!$_SESSION){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
     } else {
         if(!strcmp($_SESSION['login'], "ok") == 0){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
         }
     }
 if (isset($_SESSION['nomeUsuario'])) {

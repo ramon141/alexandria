@@ -14,5 +14,5 @@
 	}
 
 	session_destroy();
-	header("location: /alexandria/index.php");
+	header("location: /alexandria/");
  ?>

@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!$_SESSION) {
-    header("Location: acessNegado.php");
+    header("Location: acessNegado");
 } else {
     if (!strcmp($_SESSION['login'], "ok") == 0) {
-        header("Location: acessNegado.php");
+        header("Location: acessNegado");
     }
 }
 
@@ -19,7 +19,7 @@ if ($_GET && $_POST && isset($_POST['ok']) && strcmp($_POST['ok'], "ok") == 0 &&
 
     if ($connection) {
         mysqli_close($connection);
-        header("Location: /alexandria/logout.php");
+        header("Location: /alexandria/logout");
     }
 } else {
     if ($_POST && isset($_POST['ok']) && strcmp($_POST['ok'], "ok") == 0) {
@@ -36,7 +36,7 @@ if ($_GET && $_POST && isset($_POST['ok']) && strcmp($_POST['ok'], "ok") == 0 &&
         echo $sql;
         if ($connection) {
             mysqli_close($connection);
-            header("Location: /alexandria/index.php");
+            header("Location: /alexandria/");
         }
     }
 }
@@ -142,9 +142,9 @@ if ($_GET && $_POST && isset($_POST['ok']) && strcmp($_POST['ok'], "ok") == 0 &&
 
                     <?php
                     if ($_GET && isset($_GET['m']) && strcmp($_GET['m'], "d") == 0) {
-                        echo '<form action="editDate.php?m=d" method="post" id="form" onsubmit="">';
+                        echo '<form action="editDate?m=d" method="post" id="form" onsubmit="">';
                     } else {
-                        echo '<form action="editDate.php" method="post" id="form" onsubmit="">';
+                        echo '<form action="editDate" method="post" id="form" onsubmit="">';
                     }
                     ?>
                     <div class="modal-header">

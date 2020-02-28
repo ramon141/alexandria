@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(!$_SESSION){
-            header("Location: ../acessNegado.php");
+            header("Location: ../acessNegado");
     } else {
         if(!strcmp($_SESSION['login'], "ok") == 0){
-            header("Location: ../acessNegado.php");
+            header("Location: ../acessNegado");
         }
     }
 if ($_GET && isset($_GET['adress']) && isset($_GET['mensagem']) && isset($_GET['nome']) && isset($_GET['assunto']) && isset($_GET['motivo']) && isset($_GET['page'])) {
@@ -58,7 +58,7 @@ if ($_GET && isset($_GET['adress']) && isset($_GET['mensagem']) && isset($_GET['
 
     if ($mail->send()) {
         if(strcmp($motivo, "contato") == 0){
-            $link = "Location: sendMail.php?adress=". $addAdress . "&mensagem=".$nome."&assunto=".$assunto."motivo=enviar";
+            $link = "Location: sendMail?adress=". $addAdress . "&mensagem=".$nome."&assunto=".$assunto."motivo=enviar";
             echo $link;
             //header($link);
         } else {

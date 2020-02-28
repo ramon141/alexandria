@@ -166,38 +166,7 @@ if(isset($_SESSION['nomeUsuario'])){
 
 
 <!-- form itself end-->
-<form id="test-form2" class="white-popup-block mfp-hide" method="post" action="cadastro.php" >
-    <div class="popup_box ">
-        <div class="popup_inner">
-            <div class="logo text-center">
-                <a href="#">
-                    <img src="img/logoAlexandria.png" alt="" style="width:100px;height:100px;">
-                </a>
-            </div>
-            <h3>Cadastro</h3>
-            <div class="row">
-                <div class="col-md-6 col-xs-6">
-                    <input type="text" placeholder="Nome" name="nomeUsuario">
-                </div>
-                <div class="col-md-6 col-xs-6">
-                    <input type="text" placeholder="Sobrenome" name="sobrenomeUsuario">
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <input type="email" placeholder="Digite seu email" name="emailUsuario">
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <input type="password" placeholder="Senha" name="senhaUsuario">
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <input type="Password" placeholder="Confirmar senha" name="senhaConfirmar">
-                </div>
-                <div class="col-xl-12">
-                    <button type="submit" class="boxed_btn_orange">Cadastrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
+
 <!-- form itself end -->
 
 <!-- form itself end -->

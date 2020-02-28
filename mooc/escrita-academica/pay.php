@@ -1,10 +1,10 @@
 <?php 
 session_start();
 if(!$_SESSION){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
     } else {
         if(!strcmp($_SESSION['login'], "ok") == 0){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
         }
     }
 if(isset($_SESSION['nomeUsuario'])){
@@ -86,7 +86,7 @@ if(isset($_SESSION['nomeUsuario'])){
           <div class="row align-items-center no-gutters">
             <div class="col-xl-2 col-lg-2">
               <div class="logo-img">
-                <a href="index.php">
+                <a href="/alexandria/">
                   <img src="img/logoAlexandria.png" alt="Alexandria" style="width:80px;height:80px;">
                 </a>
               </div>
@@ -118,7 +118,7 @@ if(isset($_SESSION['nomeUsuario'])){
       <div class="container">
 
         <div class="section_title mb-100">
-          <form method="POST" action="pagamento.php">
+          <form method="POST" action="pagamento">
             <fieldset class="border border-primary" style="width:70%; background-color: 
             white; color: #4682b4; padding: 10px 40px; margin: 5px 200px; border-width: 10px; border-radius: 4px; cursor: pointer;" ><br> 
             <h2>Pague com seu cartão de crédito</h2> <br>
@@ -143,7 +143,7 @@ if(isset($_SESSION['nomeUsuario'])){
             <input style="width:40%; background-color: #4682b4; color: white; 
             padding: 14px 20px;  border: none; border-radius: 4px; cursor: 
             pointer;" type="submit" value="Finalizar Comprar"><br> <br>
-            <a href="index.php">Cancelar e voltar</a>
+            <a href="../escrita-academica/">Cancelar e voltar</a>
           </fieldset>
         </form>  
       </div>

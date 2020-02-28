@@ -77,7 +77,7 @@ if (isset($_SESSION['nomeUsuario'])) {
         setTimeout(function(){ x.innerHTML = "2s" }, 3000);
         setTimeout(function(){ x.innerHTML = "1s" }, 4000);
         setTimeout(function(){ x.innerHTML = "0" }, 5000);
-        setTimeout(function(){ window.location="index.php";}, 6000);
+        setTimeout(function(){ window.location="/alexandria/";}, 6000);
     }
 </script>
 

@@ -81,7 +81,7 @@ if ($senhaConfirmar != $senhaUsuario) {
             }
         } else {
             //echo "Verifique se todos os campos foram inseridos corretamente";
-            header("location: index.php");
+            header("location: /alexandria/");
         }
     }
     if ($connection) {

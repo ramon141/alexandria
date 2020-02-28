@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!$_SESSION) {
-    header("Location: acessNegado.php");
+    header("Location: acessNegado");
 } else {
     if (!strcmp($_SESSION['login'], "ok") == 0) {
-        header("Location: acessNegado.php");
+        header("Location: acessNegado");
     }
 }
 if ($_POST && $_POST['emailUser'] && isset($_POST['emailUser'])) {
@@ -18,9 +18,9 @@ if ($_POST && $_POST['emailUser'] && isset($_POST['emailUser'])) {
 
         //tem o emal
         if (mysqli_num_rows($buscarUser) > 0) {
-            header("Location: contatar/sendMail.php?motivo=forgetPassword&assunto=EsqueciMinhaSenha&para=" . $emailUsuario . "&page=" . $pagina . "?mensagem=1");
+            header("Location: contatar/sendMail?motivo=forgetPassword&assunto=EsqueciMinhaSenha&para=" . $emailUsuario . "&page=" . $pagina . "?mensagem=1");
         } else {//o email informado nao esta no sistema
-            header("Location: /alexandria/index.php?mensagem=2");
+            header("Location: /alexandria/?mensagem=2");
         }
 
     }

@@ -79,7 +79,7 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                 $("#senhaUserl").show();
                 document.getElementById("senhaUser").value = "";
                 document.getElementById("submentrar").innerHTML = "Entrar";
-                var f = "/alexandria/login.php?page=<?= parse_url($_SERVER['REQUEST_URI'])['path']; ?>";
+                var f = "/alexandria/login?page=<?= parse_url($_SERVER['REQUEST_URI'])['path']; ?>";
                 document.getElementById("formlogin").action = f;
             }
 
@@ -90,7 +90,7 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                 $("#senhaUserl").hide();
                 document.getElementById("senhaUser").value = "xxxx";
                 document.getElementById("submentrar").innerHTML = "Recuperar minha senha";
-                var f = "/alexandria/esqueciMinhaSenha.php?page=<?= parse_url($_SERVER['REQUEST_URI'])['path']; ?>";
+                var f = "/alexandria/esqueciMinhaSenha?page=<?= parse_url($_SERVER['REQUEST_URI'])['path']; ?>";
                 document.getElementById("formlogin").action = f;
             }
         </script>
@@ -102,36 +102,36 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
             <div class="navbar-collapse collapse" id="navbarNav">
                 <ul class="navbar-nav" id='navigation'>
                     <li class="nav-item active">
-                        <a style="color: white;" class="nav-link" href="/alexandria/index.php">Início</a>
+                        <a style="color: white;" class="nav-link" href="/alexandria/">Início</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             MOOC
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/mooc/escrita-academica/index.php">Escrita Acadêmica</a>
+                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/mooc/escrita-academica/">Escrita Acadêmica</a>
 
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="/alexandria/about.php">Sobre</a>
+                        <a style="color: white;" class="nav-link" href="/alexandria/about">Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: white;" class="nav-link" href="/alexandria/contatar/contact.php">Contate-nos</a>
+                        <a style="color: white;" class="nav-link" href="/alexandria/contatar/contact">Contate-nos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Blog
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/material-gratuito.php">Material Gratuito</a>
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/analise.php">Análise de Sistemas</a>
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/bd.php">Banco de Dados</a>
+                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/material-gratuito">Material Gratuito</a>
+                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/analise">Análise de Sistemas</a>
+                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/bd">Banco de Dados</a>
                         </div>
                     </li>
                     <?php
                     if (strcmp($statusPagamento, "1") == 0) {
-                        echo "<li class='nav-item'><a style='color: white;' class='nav-link' href='/alexandria/mooc/escrita-academica/forum.php'>Fórum</a></li>";
+                        echo "<li class='nav-item'><a style='color: white;' class='nav-link' href='/alexandria/mooc/escrita-academica/forum'>Fórum</a></li>";
                     }
                     ?>
 
@@ -145,8 +145,8 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                         <a style='color: white; margin: 0 100X; ' class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> $loginUser
                         </a>
                         <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                            <a style='color: #00BFFF;' class='dropdown-item' href='/alexandria/contaUser.php'>Configuração de Conta</a>
-                            <a style='color: #00BFFF;' class='dropdown-item' href='/alexandria/logout.php'>Sair</a>
+                            <a style='color: #00BFFF;' class='dropdown-item' href='/alexandria/contaUser'>Configuração de Conta</a>
+                            <a style='color: #00BFFF;' class='dropdown-item' href='/alexandria/logout'>Sair</a>
                         </div>
                     </li>
                 </ul>
@@ -173,7 +173,7 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
 
                 <!-- Conteúdo do modal-->
                 <div class="modal-content">
-                    <form class="form-horizontal" id="formCadastro" action="/alexandria/cadastro.php" method="post">
+                    <form class="form-horizontal" id="formCadastro" action="/alexandria/cadastro" method="post">
                         <!-- Cabeçalho do modal -->
                         <div class="modal-header">
                             <h4 style= "color: #4682b4;" class="modal-title" > Cadastre-se </h4> 
@@ -217,7 +217,7 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
 
                 <!-- Conteúdo do modal-->
                 <div class="modal-content">
-                    <form class="form-horizontal" id="formlogin" action="/alexandria/login.php?page=<?= parse_url($_SERVER['REQUEST_URI'])['path']; ?>" method="post">
+                    <form class="form-horizontal" id="formlogin" action="/alexandria/login?page=<?= parse_url($_SERVER['REQUEST_URI'])['path']; ?>" method="post">
                         <!-- Cabeçalho do modal -->
                         <div class="modal-header">
                             <h4 style= "color: #4682b4;" class="modal-title"> Entrar </h4>

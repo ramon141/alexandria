@@ -84,7 +84,7 @@
 						<textarea style="width: 500px; height: 90px;" id="questao" name="questao" readonly><?php echo $perguntaR; ?></textarea>
 					</div>
 				</div><br>
-				<form method="POST" action="questionario1.php">
+				<form method="POST" action="questionario1">
 					<div class="form-group">
 						<div class="col-md-4">
 							<?php 						

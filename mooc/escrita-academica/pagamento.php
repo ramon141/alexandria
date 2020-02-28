@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(!$_SESSION){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
     } else {
         if(!strcmp($_SESSION['login'], "ok") == 0){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
         }
     }
 if ($_POST) {
@@ -23,10 +23,10 @@ if ($_POST) {
 		if($tem == 0){
 			$sql = "INSERT INTO `pagamento` (`numeroCartao`, `cvv`, `validadeCartao`, `statusPagamento`, `usuario_idUsuario`) VALUES ('$numeroCartao', '$cvv', '$validadeCartao', '0', '$usuario_idUsuario')";
 				$CompraUser = mysqli_query($connection,$sql);
-				header("location: index.php");				
+				header("location: ../escrita-academica");				
 		}
 		else {
-			header("location: index.php");
+			header("location: ../escrita-academica");
 		}
 	}else
 	echo "não conectou";

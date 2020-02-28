@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(!$_SESSION){
-            header("Location: ../acessNegado.php");
+            header("Location: ../acessNegado");
     } else {
         if(!strcmp($_SESSION['login'], "ok") == 0){
-            header("Location: ../acessNegado.php");
+            header("Location: ../acessNegado");
         }
     }
 $sucesso = 0;
@@ -45,7 +45,7 @@ if ($_GET && isset($_GET['assunto']) && isset($_GET['para']) && isset($_GET['pag
         $str .= "Fim da mensagem de contato";
         $str .= "</body></html>";
 
-        $page = "sendMail.php?assunto=Recebemos seu E-mail&para=$de&page=$page&motivo=emaildevolta";
+        $page = "sendMail?assunto=Recebemos seu E-mail&para=$de&page=$page&motivo=emaildevolta";
     }
 
 
@@ -78,7 +78,7 @@ if ($_GET && isset($_GET['assunto']) && isset($_GET['para']) && isset($_GET['pag
 
 
     if ($mail->send()) {
-        if (strcmp($page, "sendMail.php?assunto=Recebemos seu E-mail&para=$de&page=$pagecmp&motivo=emaildevolta") == 0) {
+        if (strcmp($page, "sendMail?assunto=Recebemos seu E-mail&para=$de&page=$pagecmp&motivo=emaildevolta") == 0) {
             header("Location: $page");
         } else {
             if (endsWith($page, "mensagem")) {

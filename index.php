@@ -82,7 +82,7 @@ if (isset($_SESSION['nomeUsuario'])) {
                         <div class="slider_info">
                             <h3> Bem-vindo<br>
                                 ao Alexandria!<br></h3>
-                            <a href="about.php" class="boxed_btn">Conheça nosso MOOC!</a>
+                            <a href="about" class="boxed_btn">Conheça nosso MOOC!</a>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@ if (isset($_SESSION['nomeUsuario'])) {
                     <div class="single_about_info">
                         <h3>Alexandria</h3>
                         <p align="justify">O Alexandria é um sistema que, inicialmente, oferece um MOOC sobre Escrita Científica para a comunidade acadêmica. Esse sistema faz parte do projeto integrador de quatro acadêmicas do curso técnico em Informática do Instituto Federal do Pará - Campus Santarém.</p>
-                        <a href="about.php" class="boxed_btn">Saiba Mais!</a>
+                        <a href="about" class="boxed_btn">Saiba Mais!</a>
                     </div>
                 </div>
                 <div class="col-xl-6 offset-xl-1 col-lg-6">
@@ -156,7 +156,7 @@ if (isset($_SESSION['nomeUsuario'])) {
                                     <p>18 de out de 2019</p>
                                 </div>
                                 <div class="blog_meta">
-                                    <h3><a href="material-gratuito.php">Tipos de Resumos</a></h3>
+                                    <h3><a href="material-gratuito">Tipos de Resumos</a></h3>
                                 </div>
                             </div></center>
                     </div>
@@ -171,7 +171,7 @@ if (isset($_SESSION['nomeUsuario'])) {
                                     <p>11 de out de 2019</p>
                                 </div>
                                 <div class="blog_meta">
-                                    <h3><a href="analise.php">Análise de Sistemas</a></h3>
+                                    <h3><a href="analise">Análise de Sistemas</a></h3>
                                 </div>
                             </div></center>
                     </div>
@@ -186,7 +186,7 @@ if (isset($_SESSION['nomeUsuario'])) {
                                     <p>11 de out de 2019</p>
                                 </div>
                                 <div class="blog_meta">
-                                    <h3><a href="bd.php">Banco de Dados</a></h3>
+                                    <h3><a href="bd">Banco de Dados</a></h3>
                                 </div>
                             </div></center>
                     </div>

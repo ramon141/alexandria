@@ -11,10 +11,10 @@ if (strcmp($_SESSION['statusPagamento'], "1")==0 ) {
     $pagou = $_SESSION['statusPagamento'];
 }else {
     if(!$_SESSION){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
     } else {
         if(!strcmp($_SESSION['login'], "ok") == 0){
-            header("Location: ../../acessNegado.php");
+            header("Location: ../../acessNegado");
         }
     }
 }
@@ -103,7 +103,7 @@ if ($_GET && isset($_GET['id'])) {
         <div class="courses_details_info">
             <div class="container">
                 <div class="outline_courses_info">
-                    <form action="forum.php" method="post">
+                    <form action="forum" method="post">
                         <h1 class="single_courses">
                             <div class="input-group mb-3">Tópicos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="text"  class="form-control" name="pesq" style="height: 50px;" placeholder="Digite o que deseja" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -118,11 +118,11 @@ if ($_GET && isset($_GET['id'])) {
                 <div>    
                     <?php
                     while ($fetch = mysqli_fetch_array($query)) {
-                        echo "<h4 style='color: #04D2C8;'><a href='forum.php?id=$fetch[0]'>$fetch[1] [RESPONDIDO]</a></h4>";
+                        echo "<h4 style='color: #04D2C8;'><a href='forum?id=$fetch[0]'>$fetch[1] [RESPONDIDO]</a></h4>";
                     }
                     if (isset($query11)) {
                         while ($fetch1 = mysqli_fetch_array($query11)) {
-                            echo "<h4 style='color: #04D2C8;'><a href='forum.php?id=$fetch1[0]'>$fetch1[1]</a></h4>";
+                            echo "<h4 style='color: #04D2C8;'><a href='forum?id=$fetch1[0]'>$fetch1[1]</a></h4>";
                         }
                     }
                     $query = mysqli_query($connection, "select * from vforumcomresposta where idTopico = $idTopico");
@@ -166,7 +166,7 @@ if ($_GET && isset($_GET['id'])) {
                 <br><br>
                 <div>
                     <h3>Tire sua dúvida</h3>
-                    <form action="addTopico.php" method="POST">
+                    <form action="addTopico" method="POST">
                         <div class="form-group">
                             <label style="color: #4682b4;" for="textinput">Nome do Tópico</label>  
                             <input style="width: 50%;" id="nomeTopic" name="nomeTopico" type="text" placeholder="Nome" class="form-control input-md">

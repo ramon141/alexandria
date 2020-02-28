@@ -167,11 +167,11 @@ if (isset($_SESSION['temCartao'])) {
                             <?php
                             if (isset($loginUser)) {
                                 if (isset($_SESSION['temcartao']) && strcmp($_SESSION['temcartao'], "1") == 0) {
-                                    echo "<a href='aula.php'>
+                                    echo "<a href='aula'>
                         <span class='boxed_btn'>Comece aprender</span>
                         </a>";
                                 } else {
-                                    echo "<a href='pay.php'>
+                                    echo "<a href='pay'>
                     <span class='boxed_btn'>Compre Agora!</span>
                     </a>";
                                 }
