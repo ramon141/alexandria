@@ -12,9 +12,12 @@
 				<h3 style="border-radius: 10px; padding: 10px; width: 30%; background-color: powderblue;"> 1) De acordo com o estudo do texto que acabamos de lê, assinale o que ele representa: </h3>
 
 				<label class="container"> A) resposta1
-	  				<input type="checkbox" name="questao1" >
+	  				<input type="radio" name="questao1" >
 	  				<span class="checkmark"></span>
 				</label><br>
+                                
+                                
+                                
 				<label class="container"> B) resposta2
 	  				<input type="checkbox" name="questao2" >
 	  				<span class="checkmark"></span>

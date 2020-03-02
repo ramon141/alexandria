@@ -94,7 +94,7 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                 document.getElementById("formlogin").action = f;
             }
         </script>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient(to right, rgb(73, 206, 201), rgb(70, 130, 180));">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#"><img src="/alexandria/img/logoAlexandria.png" width="80" height="80"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
                 <span class="navbar-toggler-icon"></span>

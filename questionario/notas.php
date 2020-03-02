@@ -1,134 +1,60 @@
-<?php 
+<?php
 
-	require_once("../conexao.php");
-	$idUsuario = 4;
-	$queryModulo = mysqli_query($connection, "SELECT * from modulo");
-	$quantModulo = mysqli_num_rows($queryModulo);
-	require_once("calcNota.php");
-	$nota = new teste;
+
+$idUsuario = 7;
+
+require_once '../conexao.php';
+$query = mysqli_query($connection, "select * from questionario where usuario_idUsuario = $idUsuario");
+
+require_once './calcNota.php';
+
 ?>
-<!DOCTYPE html>
+
+
+
 <html>
-	<head>
-		<title>Suas Notas</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<div>
+    <head>
+        <title>title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <?php if (mysqli_num_rows($query) > 0) { ?>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Módulo</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Nota</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
 
-		<?php 
-		$loop = 0;
-		$umaVez = true;
-		while ($loop < $quantModulo) {
-			$quantRegistrosLocal = 0;
-			$queryUserResp = mysqli_query($connection, "SELECT * FROM `userresp` where usuario_idUsuario = $idUsuario");
-			$quantRegistros =  mysqli_num_rows($queryUserResp);
-			if($quantRegistros == 0){
-				echo "Nenhuma pergunta respondida";
-				break;
-			}
-
-			$loop++;
-			echo "<table class='table table-bordered table-dark'>
-            <thead>
-                <tr>
-                    <th scope='col'>Pergunta</th>
-                    <th scope='col'>Sua resposta</th>
-                    <th scope='col'>Resposta Certa</th>
-                    <th scope='col'>Módulo</th>
-                    <th scope='col'>Hora de Resposta</th>
-                    <th scope='col'>Certo ou Errado?</th>
-                    <th scope='col'>Pontuação pela questão</th>
-                    <th scope='col'>Nota Total por módulo</th>
-                </tr>
-            </thead>
-            <tbody>";
-			
-							while($fetch = mysqli_fetch_array($queryUserResp)){
-
-							$resp = $fetch[1];
-							$queryResposta = mysqli_query($connection, "SELECT * FROM `resposta`  where idResposta = $resp");
-
-							while($fetch2 = mysqli_fetch_array($queryResposta)){
-
-								$idPergunta = $fetch2[2];
-								$respostaUsuario = $fetch2[1];
-								$queryPerguntas = mysqli_query($connection, "SELECT * FROM `pergunta` where idPergunta = $idPergunta");
-
-								while($fetch3 = mysqli_fetch_array($queryPerguntas)){
-									$idRespostaCerta = $fetch3[2];
-									$queryRespostaCerta = mysqli_query($connection, "SELECT * FROM `resposta`  where idResposta = $idRespostaCerta");
-									$modulo = $fetch3[3];
-
-									while($fetch4 = mysqli_fetch_array($queryRespostaCerta)){
-										$respostaCerta = $fetch4[1];
-									}
-
-									$pergunta = $fetch3[1];
-								}
-							}
-
-							$horadeResposta = $fetch[2];
-							$notaPorResposta = $fetch[3];
-							if($idRespostaCerta == $resp){
-								$msgCertoErrado = "Você acertou essa questão!";
-							} else {
-								$msgCertoErrado = "Você errou essa questão!";
-							}
-
-							if($loop == $modulo){
-									if($umaVez){
-
-									$nota -> modulo = $modulo;
-									$tttt = "<td align=\"center\">".$nota->getNota()."</td>";
-									$umaVez = false;
-								} else {
-									$tttt = "";
-
-								}
-
-									echo "
-										<tr>
-								               <td align=\"center\">".$pergunta."</td>
-								               <td align=\"center\">".$respostaUsuario."</td>
-								               <td align=\"center\">".$respostaCerta."</td>
-								               <td align=\"center\">".$modulo."</td>
-								               <td align=\"center\">".$horadeResposta."</td>
-								               <td align=\"center\">".$msgCertoErrado."</td>
-								               <td align=\"center\">".$notaPorResposta."</td>
-								               ".$tttt."
-								        </tr>
-								        ";
-						    } else {
-						    	$quantRegistrosLocal++;
-						    	if($quantRegistrosLocal == $quantRegistros){
-						    		echo "
-										<tr>
-								               <td align=\"center\">Sem Registros</td>
-								               <td align=\"center\">Sem Registros</td>
-								               <td align=\"center\">Sem Registros</td>
-								               <td align=\"center\">".$loop."</td>
-								               <td align=\"center\">Sem Registros</td>
-								               <td align=\"center\">Sem Registros</td>
-								               <td align=\"center\">Sem Registros</td>
-								               <td align=\"center\">Sem Nota</td>
-								        </tr>
-								        ";
-						    	}
-						    }
-						}
-						echo "</tbody>
-				        </table>";
-				        $umaVez = true;
-	}
-		?>
-
-</div>
-
-	</body>
+                <tbody>
+                    <?php
+                    while ($fetchQuestionario = mysqli_fetch_array($query)) {
+                        $nota = getNota($fetchQuestionario['modulo_idModulo'], $connection, $idUsuario);
+                        if($nota >= 70){
+                            $status = "Aprovado";
+                        } else {
+                            $status = "Reprovado";
+                        }
+                        echo '
+                        <tr>
+                            <th scope="row">'.$fetchQuestionario['modulo_idModulo'].'</th>
+                            <td>'.date('d/m/Y', strtotime($fetchQuestionario['data'])).'</td>
+                            <td>'.$nota.'</td>
+                            <td>'.$status.'</td>
+                            <td><a href="notas?modulo='.$fetchQuestionario['modulo_idModulo'].'">Detalhes</a></td>    
+                        </tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+        <?php } else {
+            echo "Nenhum questionário foi respondido";
+        } ?>
+    </body>
 </html>
-<?php 
-
-	if($connection) mysqli_close($connection);
- ?>

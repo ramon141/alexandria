@@ -76,6 +76,13 @@ if ($connection) {
         <link rel="stylesheet" href="css/style.css">
 
         <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+        <style>
+    .modal-personalizado{
+        /*min-height: 90%;*/
+        min-width: 90%;
+        margin-left: 10;
+    }
+</style>
     </head>
 
     <body>
@@ -152,7 +159,6 @@ if ($connection) {
                                 <div id="idvideo" style="margin: 20px 6px;">
                                     <video id="player" playsinline controls style="width: 100%; height: 100%;" src="">
                                     </video>
-                                    <!--<iframe width="100%" height="400" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="ifrma_video1">jnerjgnjn</iframe>-->
                                 </div>
 
                                 <div id="divplayeraudio" style="margin: 20px 6px;">
@@ -182,20 +188,15 @@ if ($connection) {
 
 
         <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered modal-personalizado" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <iframe src="../../questionario/questionario1" ></iframe>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <iframe width="100%" style="height: 400px" frameborder="0" src="../../questionario/questionario?modulo=<?php echo $modulo?>" ></iframe>
                     </div>
                 </div>
             </div>
