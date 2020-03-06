@@ -22,9 +22,9 @@ if ($_GET && isset($_GET['modulo'])) {
     if ($modulo > 2) {
         echo "<script type='text/javascript'>
         alert('Este módulo ainda encontra-se bloqueado');
+        window.location.href = 'aula?modulo=1';
         </script>"
         ;
-        header("Location: aula?modulo=1");
     }
 } else {
     $modulo = 1;
@@ -168,14 +168,25 @@ if ($connection) {
                                 </div>
                                 <div>
                                     <button style=" background-color: #04D2C8;" id="btn_video" 
-                                            onclick="anteriorVideo();"; > Anterior</button>
+                                            onclick="anteriorVideo();"> Anterior</button>
                                     <button style="margin: 6px 10px; background-color: #04D2C8;" id="btn_video"
                                             onclick="avancarVideo();"> Avançar</button>
                                 </div>
                                 <br><br>
                                 <h3 style="margin: 1px 1px 1px 10px;">Materiais Adicionais</h3>
-                                <a style="margin: 20px 1px 1px 10px;" href="https://bit.ly/2BjRFR1" 
-                                   target="_blank" class="boxed_btn" >Download de Apostila</a>                
+                                
+                                <?php 
+                                
+                                                $queryApostilas  = mysqli_query($connection, "SELECT * FROM `apostila` where modulo_idModulo = '$modulo'");
+                                                while($fetchApostilas = mysqli_fetch_array($queryApostilas)){
+                                                    echo '<a style="margin: 20px 1px 1px 10px;" href="' . $fetchApostilas['src'] . '" target="_blank" class="boxed_btn" >Baixar Apostila "'.$fetchApostilas['nomeApostila'].'" </a>  ';
+                                                }
+                                
+                                ?>
+                                
+                                
+                                
+                                              
                             </div>
                         </div>
                     </figure>

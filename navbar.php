@@ -21,6 +21,7 @@ if (isset($_SESSION['statusPagamento'])) {
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>        
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158692559-1"></script>
+        
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag() {
@@ -232,21 +233,21 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                             <label style= "color: #4682b4;" for="fname" id="senhaUserl">Senha</label> <br> 
                             <input type="password" class="form-control input-lg" placeholder="Digite sua senha" id="senhaUser" name="senhaUser" required="" value=""><br>
 
-                            <button style="margin: 1px 155px;" onclick="esq()" id="esquecid" type="button" class="btn btn-link"> Esqueci minha senha </button>
-                            <button style="margin: 1px 155px;" onclick="lem()" id="lembreid" type="button" class="btn btn-link"> Lembrei minha senha </button>
-
+                            <button style="float: left; margin-left: 35%;" onclick="esq()" id="esquecid" type="button" class="btn btn-link"> Esqueci minha senha </button>
+                            <button style="float: left; margin-left: 35%;" onclick="lem()" id="lembreid" type="button" class="btn btn-link"> Lembrei minha senha </button>
+                            <button style="float: left; margin-left: 35%;" onclick="$('#modalLogin').hide();$('#modalCadastro').show();" id="esquecid" type="button" class="btn btn-link">Já tenho login</button>
+                            <br><br><br>
                             <?php
-                            if ($_GET && $_GET['mensagem']) {
+                            if ($_GET && isset($_GET['mensagem'])) {
 
 
-                                echo '
-                                                        <script>
-          $(document).ready(function(){
-  
-    $("#modalLogin").modal();
-  
-});
-        </script>  ';
+                                echo "<script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+					
+										  <script type='text/javascript'>
+										  $(window).load(function() {
+										      $('#modalLogin').modal('show');
+										  });
+										  </script>";
 
 
                                 if (strcmp($_GET['mensagem'] . "", "0") == 0) {
