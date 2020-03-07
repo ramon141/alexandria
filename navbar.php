@@ -21,7 +21,7 @@ if (isset($_SESSION['statusPagamento'])) {
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>        
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158692559-1"></script>
-        
+
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag() {
@@ -55,14 +55,14 @@ if (isset($_SESSION['statusPagamento'])) {
                 background-color: #000;
             }
 
-
+            
         </style>
     </head>
     <body>
         <script>
-document.body.innerHTML = document.body.innerHTML.replace('<div style="text-align:right;position:fixed;bottom:3px;right:3px;width:100%;z-index:999999;cursor:pointer;line-height:0;display:block;"><a target="_blank" href="https://www.freewebhostingarea.com" title="Free Web Hosting with PHP5 or PHP7"><img alt="Free Web Hosting" src="https://www.freewebhostingarea.com/images/poweredby.png" style="border-width: 0px;width: 180px; height: 45px; float: right;"></a></div>',"");
+            document.body.innerHTML = document.body.innerHTML.replace('<div style="text-align:right;position:fixed;bottom:3px;right:3px;width:100%;z-index:999999;cursor:pointer;line-height:0;display:block;"><a target="_blank" href="https://www.freewebhostingarea.com" title="Free Web Hosting with PHP5 or PHP7"><img alt="Free Web Hosting" src="https://www.freewebhostingarea.com/images/poweredby.png" style="border-width: 0px;width: 180px; height: 45px; float: right;"></a></div>', "");
             $(document).ready(function () {
-                
+
                 $("#lembreid").hide();
                 $("#formCadastro").submit(function (e) {
                     if (document.getElementById("senha").value !== document.getElementById("senhaConf").value) {
@@ -95,7 +95,8 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                 document.getElementById("formlogin").action = f;
             }
         </script>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to right, #0098F7, #0098F7);">
+            
             <a class="navbar-brand" href="#"><img src="/alexandria/img/logoAlexandria.png" width="80" height="80"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
                 <span class="navbar-toggler-icon"></span>
@@ -200,8 +201,8 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                             <input type="password" class="form-control input-lg" id="senha" name="senhaUsuario" placeholder="Digite sua senha" required><br>
                             <label style= "color: #4682b4;" for="fname">Confirmar Senha</label> <br> 
                             <input type="password" class="form-control input-lg" id="senhaConf" name="senhaConfirmar" placeholder="Digite sua senha novamente" required> <br>
+                            <button style="float: left; margin-left: 35%;" onclick="$('#modalCadastro').modal('hide');" data-toggle='modal' data-target='#modalLogin' type="button" class="btn btn-link">Já possuo registro</button><br><br>
                         </div>
-
                         <!-- Rodapé do modal-->
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary btn-lg btn-block" value="Cadastrar">
@@ -233,9 +234,9 @@ document.body.innerHTML = document.body.innerHTML.replace('<div style="text-alig
                             <label style= "color: #4682b4;" for="fname" id="senhaUserl">Senha</label> <br> 
                             <input type="password" class="form-control input-lg" placeholder="Digite sua senha" id="senhaUser" name="senhaUser" required="" value=""><br>
 
-                            <button style="float: left; margin-left: 35%;" onclick="esq()" id="esquecid" type="button" class="btn btn-link"> Esqueci minha senha </button>
-                            <button style="float: left; margin-left: 35%;" onclick="lem()" id="lembreid" type="button" class="btn btn-link"> Lembrei minha senha </button>
-                            <button style="float: left; margin-left: 35%;" onclick="$('#modalLogin').hide();$('#modalCadastro').show();" id="esquecid" type="button" class="btn btn-link">Já tenho login</button>
+                            <button style="float: left; margin-left: 33%;" onclick="esq()" id="esquecid" type="button" class="btn btn-link"> Esqueci minha senha </button>
+                            <button style="float: left; margin-left: 33%;" onclick="lem()" id="lembreid" type="button" class="btn btn-link"> Lembrei minha senha </button>
+                            <button style="float: left; margin-left: 30%;" onclick="$('#modalLogin').modal('hide');" data-toggle='modal' data-target='#modalCadastro' type="button" class="btn btn-link">Ainda não possuo registro</button>
                             <br><br><br>
                             <?php
                             if ($_GET && isset($_GET['mensagem'])) {

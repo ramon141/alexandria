@@ -62,27 +62,19 @@ if ($connection) {
         <!-- Place favicon.ico in the root directory -->
 
         <!-- CSS here -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/themify-icons.css">
-        <link rel="stylesheet" href="css/nice-select.css">
-        <link rel="stylesheet" href="css/flaticon.css">
-        <link rel="stylesheet" href="css/gijgo.css">
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+        <link rel="stylesheet" href="../../css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="css/slicknav.css">
-        <link rel="stylesheet" href="css/style.css">
 
         <!-- <link rel="stylesheet" href="css/responsive.css"> -->
         <style>
-    .modal-personalizado{
-        /*min-height: 90%;*/
-        min-width: 90%;
-        margin-left: 10;
-    }
-</style>
+            .modal-personalizado{
+                /*min-height: 90%;*/
+                min-width: 90%;
+                margin-left: 10;
+            }
+        </style>
     </head>
 
     <body>
@@ -91,7 +83,7 @@ if ($connection) {
         </script>
         <!-- header-start -->
 
-        <?php include 'navbar2.php' ?>
+        <?php include '../../navbar.php'; ?>
         <!-- header-end -->
 
         <!-- bradcam_area_start -->
@@ -174,19 +166,17 @@ if ($connection) {
                                 </div>
                                 <br><br>
                                 <h3 style="margin: 1px 1px 1px 10px;">Materiais Adicionais</h3>
-                                
-                                <?php 
-                                
-                                                $queryApostilas  = mysqli_query($connection, "SELECT * FROM `apostila` where modulo_idModulo = '$modulo'");
-                                                while($fetchApostilas = mysqli_fetch_array($queryApostilas)){
-                                                    echo '<a style="margin: 20px 1px 1px 10px;" href="' . $fetchApostilas['src'] . '" target="_blank" class="boxed_btn" >Baixar Apostila "'.$fetchApostilas['nomeApostila'].'" </a>  ';
-                                                }
-                                
+
+                                <?php
+                                $queryApostilas = mysqli_query($connection, "SELECT * FROM `apostila` where modulo_idModulo = '$modulo'");
+                                while ($fetchApostilas = mysqli_fetch_array($queryApostilas)) {
+                                    echo '<a style="margin: 20px 1px 1px 10px;" href="' . $fetchApostilas['src'] . '" target="_blank" class="boxed_btn" >Baixar Apostila "' . $fetchApostilas['nomeApostila'] . '" </a>  ';
+                                }
                                 ?>
-                                
-                                
-                                
-                                              
+
+
+
+
                             </div>
                         </div>
                     </figure>
@@ -207,7 +197,7 @@ if ($connection) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <iframe width="100%" style="height: 400px" frameborder="0" src="../../questionario/questionario?modulo=<?php echo $modulo?>" ></iframe>
+                        <iframe width="100%" style="height: 400px" frameborder="0" src="../../questionario/questionario?modulo=<?php echo $modulo ?>" ></iframe>
                     </div>
                 </div>
             </div>
@@ -277,221 +267,202 @@ if ($connection) {
         <!-- footer --> 
 
         <!-- JS here -->
-        <script type="text/javascript">primeiraCoisa();</script>
-        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-        <script src="js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/isotope.pkgd.min.js"></script>
-        <script src="js/ajax-form.js"></script>
-        <script src="js/waypoints.min.js"></script>
-        <script src="js/jquery.counterup.min.js"></script>
-        <script src="js/imagesloaded.pkgd.min.js"></script>
-        <script src="js/scrollIt.js"></script>
-        <script src="js/jquery.scrollUp.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/nice-select.min.js"></script>
-        <script src="js/jquery.slicknav.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/gijgo.min.js"></script>
-
-        <!--contact js-->
-        <script src="js/contact.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="js/jquery.form.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/mail-script.js"></script>
-
-        <script src="js/main.js"></script>    </footer>
-    <!-- footer -->
-    <script type="text/javascript">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.js"></script>
+        <script src="https://use.fontawesome.com/188494abaf.js"></script>
+        <!-- footer -->
+        <script type="text/javascript">
 
 
-            var audio = [<?php
-                                                while ($mostraAudio = mysqli_fetch_array($query1)) {
-                                                    echo "\"$mostraAudio[1]\"";
-                                                }
-                                                ?>];
+                var audio = [<?php
+                                while ($mostraAudio = mysqli_fetch_array($query1)) {
+                                    echo "\"$mostraAudio[1]\"";
+                                }
+                                ?>];
 
 
-            var videoAtual = 0;
-            //cria um vetor
-            var videosVetor = [<?php
-                                                //quantidade de voltas do while
-                                                $loop = 0;
-                                                $lastVideo = -1;
+                var videoAtual = 0;
+                //cria um vetor
+                var videosVetor = [<?php
+                                //quantidade de voltas do while
+                                $loop = 0;
+                                $lastVideo = -1;
 
-                                                while ($mostraVideo = mysqli_fetch_array($query)) {
-                                                    //adiciona um a cada volta do while
-                                                    $loop++;
+                                while ($mostraVideo = mysqli_fetch_array($query)) {
+                                    //adiciona um a cada volta do while
+                                    $loop++;
 
-                                                    if ($loop == 1) {
-                                                        echo "\"";
-                                                    } else
-                                                    if ($lastVideo != $mostraVideo[3]) {
-                                                        echo '","';
-                                                    }
-                                                    echo "<source src='$mostraVideo[1]' type='video/mp4' size='$mostraVideo[2]'/>";
-                                                    if ($quantLinha == $loop) {
-                                                        echo "\"";
-                                                    }
+                                    if ($loop == 1) {
+                                        echo "\"";
+                                    } else
+                                    if ($lastVideo != $mostraVideo[3]) {
+                                        echo '","';
+                                    }
+                                    echo "<source src='$mostraVideo[1]' type='video/mp4' size='$mostraVideo[2]'/>";
+                                    if ($quantLinha == $loop) {
+                                        echo "\"";
+                                    }
 
-                                                    $lastVideo = $mostraVideo[3];
-                                                }
-                                                ?>];
-            var videosVetorSRC = [<?php
-                                                $sql = "SELECT * FROM `videos` where modulo_idModulo = $modulo order by video_id_video";
-                                                $query = mysqli_query($connection, $sql);
-                                                //quantidade de voltas do while
-                                                $loop = 0;
-                                                $lastVideo = -1;
+                                    $lastVideo = $mostraVideo[3];
+                                }
+                                ?>];
+                var videosVetorSRC = [<?php
+                                $sql = "SELECT * FROM `videos` where modulo_idModulo = $modulo order by video_id_video";
+                                $query = mysqli_query($connection, $sql);
+                                //quantidade de voltas do while
+                                $loop = 0;
+                                $lastVideo = -1;
 
-                                                while ($mostraVideo = mysqli_fetch_array($query)) {
-                                                    //adiciona um a cada volta do while
-                                                    $loop++;
+                                while ($mostraVideo = mysqli_fetch_array($query)) {
+                                    //adiciona um a cada volta do while
+                                    $loop++;
 
-                                                    if ($loop == 1) {
-                                                        echo "\"";
-                                                        echo "$mostraVideo[1]";
-                                                    } else
-                                                    if ($lastVideo != $mostraVideo[3]) {
-                                                        echo '","';
-                                                        echo "$mostraVideo[1]";
-                                                    }
+                                    if ($loop == 1) {
+                                        echo "\"";
+                                        echo "$mostraVideo[1]";
+                                    } else
+                                    if ($lastVideo != $mostraVideo[3]) {
+                                        echo '","';
+                                        echo "$mostraVideo[1]";
+                                    }
 
-                                                    if ($quantLinha == $loop) {
-                                                        echo "\"";
-                                                    }
+                                    if ($quantLinha == $loop) {
+                                        echo "\"";
+                                    }
 
-                                                    $lastVideo = $mostraVideo[3];
-                                                }
-                                                ?>];
+                                    $lastVideo = $mostraVideo[3];
+                                }
+                                ?>];
 
 
-            function bloqueado() {
-                alert("Este módulo ainda encontra-se bloqueado");
-            }
+                function bloqueado() {
+                    alert("Este módulo ainda encontra-se bloqueado");
+                }
 
-            function alteraImagem() {
-                //alert(videoAtual);
-                desativarTodos();
+                function alteraImagem() {
+                    //alert(videoAtual);
+                    desativarTodos();
 <?php
 for ($i = 0; $i < $qua; $i++) {
     echo "if(videoAtual == $i && videoAtual < $qua){
-                            aula" . ($i + 1) . "();
-                        }
-                        ";
+                                aula" . ($i + 1) . "();
+                            }
+                            ";
 }
 ?>
-            }
+                }
 
-            function avancarVideo() {
-                if ((videoAtual + 1) < <?php echo "$qua"; ?>) {
-                    var botaoVideo = document.getElementById("player");
-                    botaoVideo.innerHTML = (videosVetor[videoAtual + 1]);
-                    botaoVideo.src = (videosVetorSRC[videoAtual + 1]);
-                    $('#divplayeraudio').hide();
-                    $('#idvideo').show();
-                    videoAtual++;
-                    alteraImagem();
-                } else {
-                    if ((videoAtual + 1) == <?php echo "$qua"; ?>) {
-                        //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
+                function avancarVideo() {
+                    if ((videoAtual + 1) < <?php echo "$qua"; ?>) {
+                        var botaoVideo = document.getElementById("player");
+                        botaoVideo.innerHTML = (videosVetor[videoAtual + 1]);
+                        botaoVideo.src = (videosVetorSRC[videoAtual + 1]);
+                        $('#divplayeraudio').hide();
+                        $('#idvideo').show();
+                        videoAtual++;
+                        alteraImagem();
+                    } else {
+                        if ((videoAtual + 1) == <?php echo "$qua"; ?>) {
+                            //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
 
+                            $('#divplayeraudio').show();
+                            $('#idvideo').hide();
+                            videoAtual++;
+                            //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
+                            podcastM1();
+                        } else if (videoAtual == <?php echo "$qua"; ?>) {
+                            //alert("questionario");
+                            videoAtual++;
+                            $("#modalForm").modal();
+                            //var botaoVideo = document.getElementById("ifrma_video1");
+                            //botaoVideo.src = "../../questionario/questionario<?php echo $modulo; ?>";
+                            questionario();
+                        }
+                    }
+
+                }
+                function anteriorVideo() {
+                    if (videoAtual >= 1 && videoAtual <= <?php echo "$qua"; ?>) {
+                        var botaoVideo = document.getElementById("player");
+                        botaoVideo.innerHTML = (videosVetor[videoAtual - 1]);
+                        botaoVideo.src = (videosVetorSRC[videoAtual - 1]);
+                        videoAtual--;
+                        $('#divplayeraudio').hide();
+                        $('#idvideo').show();
+                        alteraImagem();
+                    } else if (videoAtual > <?php echo "$qua"; ?>) {
+                        //alert("audio");
+                        //var botaoVideo = document.getElementById("ifrma_video1");
+                        //botaoVideo.src = audio + "";
                         $('#divplayeraudio').show();
                         $('#idvideo').hide();
-                        videoAtual++;
-                        //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
+                        videoAtual--;
                         podcastM1();
-                    } else if (videoAtual == <?php echo "$qua"; ?>) {
-                        //alert("questionario");
-                        videoAtual++;
-                        $("#modalForm").modal();
-                        //var botaoVideo = document.getElementById("ifrma_video1");
-                        //botaoVideo.src = "../../questionario/questionario<?php echo $modulo; ?>";
-                        questionario();
                     }
                 }
-
-            }
-            function anteriorVideo() {
-                if (videoAtual >= 1 && videoAtual <= <?php echo "$qua"; ?>) {
-                    var botaoVideo = document.getElementById("player");
-                    botaoVideo.innerHTML = (videosVetor[videoAtual - 1]);
-                    botaoVideo.src = (videosVetorSRC[videoAtual - 1]);
-                    videoAtual--;
-                    $('#divplayeraudio').hide();
-                    $('#idvideo').show();
-                    alteraImagem();
-                } else if (videoAtual > <?php echo "$qua"; ?>) {
-                    //alert("audio");
-                    //var botaoVideo = document.getElementById("ifrma_video1");
-                    //botaoVideo.src = audio + "";
-                    $('#divplayeraudio').show();
-                    $('#idvideo').hide();
-                    videoAtual--;
-                    podcastM1();
-                }
-            }
 
 <?php
 for ($i = 1; $i <= $qua; $i++) {
     echo "function aula$i(){
-                            desativarTodos();
-                            var aula = document.getElementById('aula$i');
-                            aula.src = 'img/iconVideoSelec.png';
-                        }
-            ";
+                                desativarTodos();
+                                var aula = document.getElementById('aula$i');
+                                aula.src = 'img/iconVideoSelec.png';
+                            }
+                ";
 }
 ?>
 
-            function podcastM1() {
-                desativarTodos();
-                var podcastM1 = document.getElementById("podcastM1");
-                podcastM1.src = "img/iconAudioSelec.png";
-            }
+                function podcastM1() {
+                    desativarTodos();
+                    var podcastM1 = document.getElementById("podcastM1");
+                    podcastM1.src = "img/iconAudioSelec.png";
+                }
 
 
-            function questionario() {
-                desativarTodos();
-                var quiz = document.getElementById("questionario");
-                quiz.src = "img/iconQuizSelec.png";
-            }
+                function questionario() {
+                    desativarTodos();
+                    var quiz = document.getElementById("questionario");
+                    quiz.src = "img/iconQuizSelec.png";
+                }
 
 
-            function desativarTodos() {
+                function desativarTodos() {
 <?php
 for ($i = 1; $i <= $qua; $i++) {
     echo "var aula$i = document.getElementById('aula$i');
-                            aula$i.src = 'img/iconVideo.png';
-                        ";
+                                aula$i.src = 'img/iconVideo.png';
+                            ";
 }
 ?>
 
-                var podcastM1 = document.getElementById("podcastM1");
-                podcastM1.src = "img/iconAudio.png";
+                    var podcastM1 = document.getElementById("podcastM1");
+                    podcastM1.src = "img/iconAudio.png";
 
-                var quiz = document.getElementById("questionario");
-                quiz.src = "img/iconQuiz.png";
-            }
+                    var quiz = document.getElementById("questionario");
+                    quiz.src = "img/iconQuiz.png";
+                }
 
-    </script>
+        </script>
 
-    <script>
+        <script>
 
-        document.getElementById("player").innerHTML = videosVetor[0];
-        $(document).ready(function () {
-            $('#divplayeraudio').hide();
-        });
+            document.getElementById("player").innerHTML = videosVetor[0];
+            $(document).ready(function () {
+                $('#divplayeraudio').hide();
+            });
 
-    </script>
+        </script>
 
-    <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
-    <script>
-        const player = new Plyr('#player');
-        const playeraudio = new Plyr('#playeraudio');
-    </script>
-</body>
+        <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
+        <script>
+            const player = new Plyr('#player');
+            const playeraudio = new Plyr('#playeraudio');
+        </script>
+    </body>
 </html>

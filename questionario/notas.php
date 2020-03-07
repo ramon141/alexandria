@@ -1,10 +1,9 @@
 <?php
 
-
 $idUsuario = 7;
 
 require_once '../conexao.php';
-$query = mysqli_query($connection, "select * from questionario where usuario_idUsuario = $idUsuario");
+$query = mysqli_query($connection, "select * from questionario where usuario_idUsuario = $idUsuario order by modulo_idModulo");
 
 require_once './calcNota.php';
 
