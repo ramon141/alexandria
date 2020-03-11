@@ -1,9 +1,12 @@
 <?php
 
-$idUsuario = 7;
+session_start();
+$idUsuario = $_SESSION['idUsuario'];
 
 require_once '../conexao.php';
 $query = mysqli_query($connection, "select * from questionario where usuario_idUsuario = $idUsuario order by modulo_idModulo");
+
+
 
 require_once './calcNota.php';
 
@@ -20,6 +23,7 @@ require_once './calcNota.php';
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     </head>
     <body>
+        <a <?php echo 'href="questionario?modulo='.$_GET['moduloBack'].'"'?>>Voltar</a>
         <?php if (mysqli_num_rows($query) > 0) { ?>
             <table class="table table-hover">
                 <thead>

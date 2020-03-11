@@ -11,31 +11,41 @@ $modulo = $_GET['modulo'];
 $usuarioId = $_SESSION['idUsuario'];
 
 require_once '../conexao.php';
+
+//mysqli_query($connection, "TRUNCATE `questionario`");mysqli_query($connection, "TRUNCATE `user_resp`"); echo "deletado";die;
+
+
 $queryPergunta = mysqli_query($connection, "select * from pergunta where modulo_idModulo = '$modulo' order by rand();");
 if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `questionario` where usuario_idUsuario = '$usuarioId' and modulo_idModulo = '$modulo'")) > 0) {
     echo "O questionário deste módulo já foi respondido<br>";
-    echo '<a href="notas.php">Verificar nota</a><br>';
-    echo '<a href="notas.php">Excluir teste anterior e refazê-lo</a><br>';
+    echo '<a href="notas?moduloBack='.$_GET['modulo'].'">Verificar nota</a><br>';
+    echo '<a href="">Excluir teste anterior e refazê-lo</a><br>';
     die;
 }
 
 
 if ($_POST) {
+    $erro = false;
     foreach ($_POST as &$value) {
         $ar = explode(",", $value);
         if (mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `user_resp` where usuario_idUsuario = '$usuarioId' and pergunta_idPergunta = '$ar[1]'")) == 0) {
             $sqlt = "INSERT INTO `user_resp` (`usuario_idUsuario`, `pergunta_idPergunta`, `resposta_usuario`) VALUES ('$usuarioId', '$ar[1]', '$ar[0]');";
-            echo $sqlt;
-            if (mysqli_query($connection, $sqlt)) {
-                echo "Respostas adicionadas com sucesso!";
-            } else {
-                echo "Houve um erro ao inserir as notas, caso o erro persista entre em contato conosco";
+//            echo $sqlt;
+            if (!mysqli_query($connection, $sqlt) && !$erro) {
+                $erro = true;
             }
         } else {
-            echo "O formulário já tinha sido respondido antes";
+            echo "O formulário já foi respondido antes";
         }
     }
-    mysqli_query($connection, "INSERT INTO `questionario` (`idQuiz`, `modulo_idModulo`, `usuario_idUsuario`, `data`) VALUES (NULL, '$modulo', '$usuarioId','" . date('Y-m-d') . "');");
+    if(!mysqli_query($connection, "INSERT INTO `questionario` (`idQuiz`, `modulo_idModulo`, `usuario_idUsuario`, `data`) VALUES (NULL, '$modulo', '$usuarioId','" . date('Y-m-d') . "');")  && !$erro){
+        $erro = true;
+    }
+    if(!$erro){
+        echo "Suas respostas foram salvas com sucesso";
+    } else {
+        echo "Ocorreu um erro ao salvar suas respostas, tente novamente mais tarde";
+    }
     die;
 }
 ?>

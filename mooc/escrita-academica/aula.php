@@ -43,9 +43,7 @@ if ($connection) {
     $sql1 = "SELECT * FROM `audio` where modulo_idModulo = $modulo";
     $query1 = mysqli_query($connection, $sql1);
 }
-?>      
-
-
+?>
 
 <!doctype html>
 <html>
@@ -53,24 +51,23 @@ if ($connection) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
         <title>Curso - Alexandria</title>
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.5.10/plyr.css" />
-        <!-- <link rel="manifest" href="site.webmanifest"> -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/alexandria-logo.jpeg">
-        <!-- Place favicon.ico in the root directory -->
 
-        <!-- CSS here -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/x-icon" href="img/alexandria-logo.jpeg">
+
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.5.10/plyr.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
         <link rel="stylesheet" href="../../css/style.css">
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 
-        <!-- <link rel="stylesheet" href="css/responsive.css"> -->
         <style>
             .modal-personalizado{
-                /*min-height: 90%;*/
                 min-width: 90%;
                 margin-left: 10;
             }
@@ -86,11 +83,6 @@ if ($connection) {
         <?php include '../../navbar.php'; ?>
         <!-- header-end -->
 
-        <!-- bradcam_area_start -->
-        <div style="background-color: #4682b4; padding:28px">
-            <h3>Material Gratuito</h3>
-        </div>
-        <!-- bradcam_area_end -->
 
 
         <div id="bloqueadoModal" class="modal modal-message fade" role="dialog">
@@ -159,6 +151,9 @@ if ($connection) {
                                     </audio>
                                 </div>
                                 <div>
+                                    <button id="btnModal" onclick="$('#modalForm').modal();">Abrir modal</button>
+                                </div>
+                                <div>
                                     <button style=" background-color: #04D2C8;" id="btn_video" 
                                             onclick="anteriorVideo();"> Anterior</button>
                                     <button style="margin: 6px 10px; background-color: #04D2C8;" id="btn_video"
@@ -197,7 +192,7 @@ if ($connection) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <iframe width="100%" style="height: 400px" frameborder="0" src="../../questionario/questionario?modulo=<?php echo $modulo ?>" ></iframe>
+                        <iframe width="100%" id="iframeQuestionario" style="height: 400px" frameborder="0" src="../../questionario/questionario?modulo=<?php echo $modulo ?>" ></iframe>
                     </div>
                 </div>
             </div>
@@ -267,7 +262,7 @@ if ($connection) {
         <!-- footer --> 
 
         <!-- JS here -->
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -280,186 +275,201 @@ if ($connection) {
         <script type="text/javascript">
 
 
-                var audio = [<?php
-                                while ($mostraAudio = mysqli_fetch_array($query1)) {
-                                    echo "\"$mostraAudio[1]\"";
-                                }
-                                ?>];
+            var audio = [<?php
+                    while ($mostraAudio = mysqli_fetch_array($query1)) {
+                    echo "\"$mostraAudio[1]\"";
+                    }
+                ?>];
 
 
                 var videoAtual = 0;
                 //cria um vetor
                 var videosVetor = [<?php
-                                //quantidade de voltas do while
-                                $loop = 0;
-                                $lastVideo = -1;
+                        //quantidade de voltas do while
+                        $loop = 0;
+                        $lastVideo = -1;
 
-                                while ($mostraVideo = mysqli_fetch_array($query)) {
-                                    //adiciona um a cada volta do while
-                                    $loop++;
+                        while ($mostraVideo = mysqli_fetch_array($query)) {
+                        //adiciona um a cada volta do while
+                        $loop++;
 
-                                    if ($loop == 1) {
-                                        echo "\"";
-                                    } else
-                                    if ($lastVideo != $mostraVideo[3]) {
-                                        echo '","';
-                                    }
-                                    echo "<source src='$mostraVideo[1]' type='video/mp4' size='$mostraVideo[2]'/>";
-                                    if ($quantLinha == $loop) {
-                                        echo "\"";
-                                    }
-
-                                    $lastVideo = $mostraVideo[3];
-                                }
-                                ?>];
-                var videosVetorSRC = [<?php
-                                $sql = "SELECT * FROM `videos` where modulo_idModulo = $modulo order by video_id_video";
-                                $query = mysqli_query($connection, $sql);
-                                //quantidade de voltas do while
-                                $loop = 0;
-                                $lastVideo = -1;
-
-                                while ($mostraVideo = mysqli_fetch_array($query)) {
-                                    //adiciona um a cada volta do while
-                                    $loop++;
-
-                                    if ($loop == 1) {
-                                        echo "\"";
-                                        echo "$mostraVideo[1]";
-                                    } else
-                                    if ($lastVideo != $mostraVideo[3]) {
-                                        echo '","';
-                                        echo "$mostraVideo[1]";
-                                    }
-
-                                    if ($quantLinha == $loop) {
-                                        echo "\"";
-                                    }
-
-                                    $lastVideo = $mostraVideo[3];
-                                }
-                                ?>];
-
-
-                function bloqueado() {
-                    alert("Este módulo ainda encontra-se bloqueado");
-                }
-
-                function alteraImagem() {
-                    //alert(videoAtual);
-                    desativarTodos();
-<?php
-for ($i = 0; $i < $qua; $i++) {
-    echo "if(videoAtual == $i && videoAtual < $qua){
-                                aula" . ($i + 1) . "();
-                            }
-                            ";
-}
-?>
-                }
-
-                function avancarVideo() {
-                    if ((videoAtual + 1) < <?php echo "$qua"; ?>) {
-                        var botaoVideo = document.getElementById("player");
-                        botaoVideo.innerHTML = (videosVetor[videoAtual + 1]);
-                        botaoVideo.src = (videosVetorSRC[videoAtual + 1]);
-                        $('#divplayeraudio').hide();
-                        $('#idvideo').show();
-                        videoAtual++;
-                        alteraImagem();
-                    } else {
-                        if ((videoAtual + 1) == <?php echo "$qua"; ?>) {
-                            //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
-
-                            $('#divplayeraudio').show();
-                            $('#idvideo').hide();
-                            videoAtual++;
-                            //alert("audio" + videoAtual + '<?php echo "$qua"; ?>');
-                            podcastM1();
-                        } else if (videoAtual == <?php echo "$qua"; ?>) {
-                            //alert("questionario");
-                            videoAtual++;
-                            $("#modalForm").modal();
-                            //var botaoVideo = document.getElementById("ifrma_video1");
-                            //botaoVideo.src = "../../questionario/questionario<?php echo $modulo; ?>";
-                            questionario();
+                        if ($loop == 1) {
+                            echo "\"";
+                        } else
+                        if ($lastVideo != $mostraVideo[3]) {
+                            echo '","';
                         }
+                        echo "<source src='$mostraVideo[1]' type='video/mp4' size='$mostraVideo[2]'/>";
+                        if ($quantLinha == $loop) {
+                            echo "\"";
+                        }
+
+                        $lastVideo = $mostraVideo[3];
+                        }
+                    ?>];
+                
+            var videosVetorSRC = [<?php
+                    $sql = "SELECT * FROM `videos` where modulo_idModulo = $modulo order by video_id_video";
+                    $query = mysqli_query($connection, $sql);
+                    
+                    $loop = 0;
+                    $lastVideo = -1;
+
+                    while ($mostraVideo = mysqli_fetch_array($query)) {
+                    //adiciona um a cada volta do while
+                    $loop++;
+
+                    if ($loop == 1) {
+                        echo "\"";
+                        echo "$mostraVideo[1]";
+                    } else
+                    if ($lastVideo != $mostraVideo[3]) {
+                        echo '","';
+                        echo "$mostraVideo[1]";
                     }
 
+                    if ($quantLinha == $loop) {
+                        echo "\"";
+                    }
+
+                    $lastVideo = $mostraVideo[3];
+                    }
+                ?>];
+
+            function alteraImagem() {
+                desativarTodos();
+                <?php
+                    for ($i = 0; $i < $qua; $i++) {
+                        echo "if(videoAtual == $i && videoAtual < $qua){
+                    aula" . ($i + 1) . "();
                 }
-                function anteriorVideo() {
-                    if (videoAtual >= 1 && videoAtual <= <?php echo "$qua"; ?>) {
-                        var botaoVideo = document.getElementById("player");
-                        botaoVideo.innerHTML = (videosVetor[videoAtual - 1]);
-                        botaoVideo.src = (videosVetorSRC[videoAtual - 1]);
-                        videoAtual--;
-                        $('#divplayeraudio').hide();
-                        $('#idvideo').show();
-                        alteraImagem();
-                    } else if (videoAtual > <?php echo "$qua"; ?>) {
-                        //alert("audio");
-                        //var botaoVideo = document.getElementById("ifrma_video1");
-                        //botaoVideo.src = audio + "";
+                        ";
+                    }
+                ?>
+            }
+
+            function avancarVideo() {
+                //avanca para o proximo video
+                if ((videoAtual + 1) < <?php echo "$qua"; ?>) {
+                    var botaoVideo = document.getElementById("player");
+                    
+                    botaoVideo.innerHTML = (videosVetor[videoAtual + 1]);
+                    botaoVideo.src = (videosVetorSRC[videoAtual + 1]);
+                    
+                    $('#divplayeraudio').hide();
+                    $('#idvideo').show();
+                    
+                    videoAtual++;
+                    alteraImagem();
+                } else { //avanca para o audio do modulo
+                    if ((videoAtual + 1) == <?php echo "$qua"; ?>) {
+                        
+                        //pausar o player quando mudar do video para o audio (use o if play para evitar erros)
+                        //document.getElementById('video').pause;
+                        
                         $('#divplayeraudio').show();
                         $('#idvideo').hide();
-                        videoAtual--;
+                        
+                        videoAtual++;
                         podcastM1();
+                    } else if (videoAtual == <?php echo "$qua"; ?>) { //avanca para o questionario do modulo
+                        videoAtual++;
+                        
+                        $("#modalForm").modal();
+                        $('#btnModal').show();
+                        
+                        $('#divplayeraudio').hide();
+                        
+                        questionario();
                     }
                 }
 
-<?php
-for ($i = 1; $i <= $qua; $i++) {
-    echo "function aula$i(){
-                                desativarTodos();
-                                var aula = document.getElementById('aula$i');
-                                aula.src = 'img/iconVideoSelec.png';
-                            }
-                ";
-}
-?>
-
-                function podcastM1() {
-                    desativarTodos();
-                    var podcastM1 = document.getElementById("podcastM1");
-                    podcastM1.src = "img/iconAudioSelec.png";
+            }
+            function anteriorVideo() {
+                if (videoAtual >= 1 && videoAtual <= <?php echo "$qua"; ?>) {
+                    var botaoVideo = document.getElementById("player");
+                    
+                    botaoVideo.innerHTML = (videosVetor[videoAtual - 1]);
+                    botaoVideo.src = (videosVetorSRC[videoAtual - 1]);
+                    
+                    videoAtual--;
+                    
+                    $('#divplayeraudio').hide();
+                    $('#idvideo').show();
+                    alteraImagem();
+                } else if (videoAtual > <?php echo "$qua"; ?>) {
+                    $('#divplayeraudio').show();
+                    $('#idvideo').hide();
+                    $('#btnModal').hide();
+                    
+                    videoAtual--;
+                    
+                    podcastM1();
                 }
+            }
 
-
-                function questionario() {
-                    desativarTodos();
-                    var quiz = document.getElementById("questionario");
-                    quiz.src = "img/iconQuizSelec.png";
+            <?php
+                for ($i = 1; $i <= $qua; $i++) {
+                    echo 
+                    "function aula$i(){
+                desativarTodos();
+                var aula = document.getElementById('aula$i');
+                aula.src = 'img/iconVideoSelec.png';
+            }";
                 }
+            ?>
+                            
+                            
+
+            function podcastM1() {
+                desativarTodos();
+                
+                var podcastM1 = document.getElementById("podcastM1");
+                podcastM1.src = "img/iconAudioSelec.png";
+            }
 
 
-                function desativarTodos() {
-<?php
-for ($i = 1; $i <= $qua; $i++) {
-    echo "var aula$i = document.getElementById('aula$i');
-                                aula$i.src = 'img/iconVideo.png';
-                            ";
-}
-?>
+            function questionario() {
+                desativarTodos();
+                
+                var quiz = document.getElementById("questionario");
+                quiz.src = "img/iconQuizSelec.png";
+            }
 
-                    var podcastM1 = document.getElementById("podcastM1");
-                    podcastM1.src = "img/iconAudio.png";
 
-                    var quiz = document.getElementById("questionario");
-                    quiz.src = "img/iconQuiz.png";
-                }
+            function desativarTodos() {
+                <?php
+                    for ($i = 1; $i <= $qua; $i++) {
+                        echo
+                        "
+                var aula$i = document.getElementById('aula$i');
+                aula$i.src = 'img/iconVideo.png';
+                        ";
+                    }
+                ?>
+
+                var podcastM1 = document.getElementById("podcastM1");
+                podcastM1.src = "img/iconAudio.png";
+
+                var quiz = document.getElementById("questionario");
+                quiz.src = "img/iconQuiz.png";
+            }
 
         </script>
 
         <script>
 
             document.getElementById("player").innerHTML = videosVetor[0];
+            
             $(document).ready(function () {
                 $('#divplayeraudio').hide();
+                $('#btnModal').hide();
             });
 
         </script>
 
         <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
+        
         <script>
             const player = new Plyr('#player');
             const playeraudio = new Plyr('#playeraudio');
