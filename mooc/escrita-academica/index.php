@@ -193,6 +193,13 @@ if (isset($_SESSION['temCartao'])) {
                                         <img src="img/logoAlexandria.png" alt="Alexandria" style="width:180px;height:180px;">
                                     </a>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-lg-3">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Redes Sociais
+                                </h3>
                                 <div class="socail_links">
                                     <ul>
                                         <li>
@@ -212,17 +219,6 @@ if (isset($_SESSION['temCartao'])) {
                                         </li>
                                     </ul>
                                 </div>
-
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 col-lg-3">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                    Contato
-                                </h3>
-                                <p>
-                                    alexandria.curso@gmail.com
-                                </p>
                             </div>
                         </div>
                     </div>

@@ -89,20 +89,24 @@ if ($connection) {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4" style="background-color: gray;">
-                    <p style="color: white; font-weight: bold;" class="text-center">      
+
+
+                    <div style="color: white; font-weight: bold; font-size: 30px; background-color: #04D2C8" class="text-center">
+                        <br>    
                         Módulos
-                    </p>
-                    
+                    </div>
+
                     <ul>
                         <?php
                         $queryModulo = mysqli_query($connection, "select * from modulo");
                         while ($fetchModulo = mysqli_fetch_array($queryModulo)) {
-                            echo '<li><button onclick="window.location.href = \'aula?modulo=' . $fetchModulo['idModulo'] . '\'" id ="modulo' . $fetchModulo['idModulo'] . '" class="boxed_btn" style=" color: black; background-color:gray; width:220px; border-radius: 0px; padding: 10px 25px;';
+                            echo '<li ><button onclick="window.location.href = \'aula?modulo=' . $fetchModulo['idModulo'] . '\'" id ="modulo' . $fetchModulo['idModulo'] . '" class="boxed_btn" style=" color: black; background-color:#04D2C8; width:220px; border-radius: 0px; padding: 10px 25px; height:100px;';
                             if ($modulo == $fetchModulo['idModulo']) {
                                 echo 'color: white;';
                             } echo '">' . $fetchModulo['nome'] . '</button></li>';
                         }
                         ?>
+
                     </ul>
                 </div>
                 <div style="width: 83.69%; height: 100%" >
@@ -135,24 +139,29 @@ if ($connection) {
                             <source src="http://dl71.y2mate.com/?file=M3R4SUNiN3JsOHJ6WWQ2a3NQS1Y5ZGlxVlZIOCtyZ1F0L3NmOUZzQ0w0OEhqOFppbk1DQkRlcHFaWW9nNDZHSEtKVVJwMmIzVi9haUV5YW9tdE1RYTFlazJKTnY0QURlbzRZNVlQNWFiakNvcXFpdWhtSXdqdzc1ZStmZEZLeGVNRElwaFZsc3hqS0d6dlNSNnpQMW95N285V3ZRS1hZc3Eya0dQT0hWdjV4SDJDS0dKT1ByM1pVV2tpZVI1cVZBNWZTY3VnTHovTDh4dHRkd1IzdDdkWlpVMnBQMDA4L2FyRU1jajZZTmlrVzlrTldOUHJobExldVRhV1EyUFM0QTdPSDdkU3REbm5aUHRqdnN1UFo5b0RkZE42VnQrR3VtL09iZ2F6ckZMNWV1SGNuVmZMemw4b1BxOUtSeXFSST0%3D" type="audio/mp3" />
                         </audio>
                     </div>
-                    <div id="btnModal">
-                        <h3 style="margin: 1px 1px 1px 10px;">Materiais Adicionais</h3>
+                    <div id="btnModal" class="text-center"
+                         <br><br>
+                        <h3 style="margin: 20px 1px 1px 10px;">Materiais Adicionais</h3>
 
                         <?php
                         $queryApostilas = mysqli_query($connection, "SELECT * FROM `apostila` where modulo_idModulo = '$modulo'");
                         while ($fetchApostilas = mysqli_fetch_array($queryApostilas)) {
-                            echo '<a style="margin: 20px 1px 1px 10px;" href="' . $fetchApostilas['src'] . '" target="_blank" class="boxed_btn" >Baixar Apostila "' . $fetchApostilas['nomeApostila'] . '" </a>  ';
+                            echo '<a style="margin: 20px 1px 1px 10px; width:300px" href="' . $fetchApostilas['src'] . '" target="_blank" type="button" class="btn btn-success" >Baixar Apostila "' . $fetchApostilas['nomeApostila'] . '" </a>  ';
                         }
                         ?>
-                        <button  onclick="$('#modalForm').modal(); document.getElementById('iframeQuestionario').contentWindow.location.reload(true);">Abrir modal</button>
+                        <br>
+                        <h3 style="margin: 20px 1px 1px 10px;">Questionário</h3>
+                        <button type="button" class="btn btn-info" style="margin: 20px 1px 1px 10px; width:300px" onclick="$('#modalForm').modal(); document.getElementById('iframeQuestionario').contentWindow.location.reload(true);">Abrir questionário do Módulo <?php echo $modulo; ?></button>
+                        
                     </div>
-                    
-<!--                    <div>
-                        <button style=" background-color: #04D2C8;" id="btn_video" 
-                                onclick="anteriorVideo();"> Anterior</button>
-                        <button style="margin: 6px 10px; background-color: #04D2C8;" id="btn_video"
-                                onclick="avancarVideo();"> Avançar</button>
-                    </div>-->
+
+                        <div>
+
+                            <button style=" background-color: #04D2C8;" id="btn_video" 
+                                    onclick="anteriorVideo();"> Anterior</button>
+                            <button style="margin: 6px 10px; background-color: #04D2C8;" id="btn_video"
+                                    onclick="avancarVideo();"> Avançar</button>
+                        </div>
 
 
 
@@ -358,8 +367,6 @@ for ($i = 0; $i < $qua; $i++) {
                                                 podcastM1();
                                             } else if (videoAtual == <?php echo "$qua"; ?>) { //avanca para o questionario do modulo
                                                 videoAtual++;
-
-                                                $("#modalForm").modal();
                                                 $('#btnModal').show();
 
                                                 $('#divplayeraudio').hide();
