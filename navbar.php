@@ -31,18 +31,6 @@ if (isset($_SESSION['statusPagamento'])) {
 
             gtag('config', 'UA-158692559-1');
         </script>
-        <style>
-            ::-webkit-scrollbar {
-                width: 17px;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                -webkit-border-radius: 10px;
-                border-radius: 10px;
-                background: rgba(71,155,187,0.8); 
-            }
-
-        </style>
 
         <style>
             .modal-backdrop {
@@ -60,7 +48,6 @@ if (isset($_SESSION['statusPagamento'])) {
     </head>
     <body>
         <script>
-            document.body.innerHTML = document.body.innerHTML.replace('<div style="text-align:right;position:fixed;bottom:3px;right:3px;width:100%;z-index:999999;cursor:pointer;line-height:0;display:block;"><a target="_blank" href="https://www.freewebhostingarea.com" title="Free Web Hosting with PHP5 or PHP7"><img alt="Free Web Hosting" src="https://www.freewebhostingarea.com/images/poweredby.png" style="border-width: 0px;width: 180px; height: 45px; float: right;"></a></div>', "");
             $(document).ready(function () {
 
                 $("#lembreid").hide();
@@ -111,7 +98,7 @@ if (isset($_SESSION['statusPagamento'])) {
                             MOOC
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/mooc/escrita-academica/">Escrita Acadêmica</a>
+                            <a class="dropdown-item" href="/alexandria/mooc/escrita-academica/">Escrita Acadêmica</a>
 
                         </div>
                     </li>
@@ -126,9 +113,9 @@ if (isset($_SESSION['statusPagamento'])) {
                             Blog
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/material-gratuito">Material Gratuito</a>
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/analise">Análise de Sistemas</a>
-                            <a style="color: #00BFFF;" class="dropdown-item" href="/alexandria/bd">Banco de Dados</a>
+                            <a class="dropdown-item" href="/alexandria/material-gratuito">Material Gratuito</a>
+                            <a class="dropdown-item" href="/alexandria/analise">Análise de Sistemas</a>
+                            <a style="color: black;" class="dropdown-item" href="/alexandria/bd">Banco de Dados</a>
                         </div>
                     </li>
                     <?php
@@ -147,8 +134,8 @@ if (isset($_SESSION['statusPagamento'])) {
                         <a style='color: white; margin: 0 100X; ' class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> $loginUser
                         </a>
                         <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                            <a style='color: #00BFFF;' class='dropdown-item' href='/alexandria/contaUser'>Configuração de Conta</a>
-                            <a style='color: #00BFFF;' class='dropdown-item' href='/alexandria/logout'>Sair</a>
+                            <a style='color: black;' class='dropdown-item' href='/alexandria/contaUser'>Configuração de Conta</a>
+                            <a style='color: black;' class='dropdown-item' href='/alexandria/logout'>Sair</a>
                         </div>
                     </li>
                 </ul>

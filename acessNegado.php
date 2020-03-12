@@ -26,25 +26,13 @@ if (isset($_SESSION['nomeUsuario'])) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
         <link rel="stylesheet" href="css/style.css">
 	<!-- <link rel="stylesheet" href="css/responsive.css"> -->
-	<style>
-
-		::-webkit-scrollbar {
-			width: 17px;
-		}
-
-		::-webkit-scrollbar-thumb {
-			-webkit-border-radius: 10px;
-			border-radius: 10px;
-			background: rgba(71,155,187,0.8); 
-		}
-
-	</style>
+	
 </head>
 <body>
 
 	<!-- navbar-start -->
 
-        <?php include 'navbar.php' ?>
+        <?php require 'navbar.php' ?>
 
      <!-- navbar-ends -->
      <br><br><br><br>

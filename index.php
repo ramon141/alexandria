@@ -6,14 +6,6 @@ if (isset($_SESSION['nomeUsuario'])) {
     $loginUser = $_SESSION['nomeUsuario'];
 }
 ?>
-<html>
-    <head>
-
-    </head>
-    <body id="primeiroBody">
-    </body>
-</html>
-
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -35,20 +27,6 @@ if (isset($_SESSION['nomeUsuario'])) {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
         <link rel="stylesheet" href="css/style.css">
-        <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-        <style>
-
-            ::-webkit-scrollbar {
-                width: 17px;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                -webkit-border-radius: 10px;
-                border-radius: 10px;
-                background: rgba(71,155,187,0.8); 
-            }
-
-        </style>
 
 
     </head>

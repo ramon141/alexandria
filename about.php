@@ -127,23 +127,23 @@ if (isset($_SESSION['nomeUsuario'])) {
                             </div>
                             <div class="master_name text-center">
                                 <h3>Sávia Almeida</h3>
-                                <p>Analista de Sistemas / 
-                                    Desenvolvedora</p>
+                                <p>Desenvolvedora</p>
+                                <p>Analista de Sistemas</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="single_team">
                             <div class="thumb">
-                                <img src="img/team/stephane.jpg" alt="Stephane" style="width:250px;height:250px;">
+                                <img src="img/team/ramon.jpg" alt="Stephane" style="width:250px;height:250px;">
                                 <div class="social_link">
-                                    <i style="font-size: 17px;" class="fa fa-envelope"> StephaneLeonara@gmail.com
+                                    <i style="font-size: 17px;" class="fa fa-envelope"> 141barbosa@gmail.com
                                     </i>
                                 </div>
                             </div>
                             <div class="master_name text-center">
-                                <h3>Stephane Noronha</h3>
-                                <p>Desenvolvedora</p>
+                                <h3>Ramon Barbosa</h3>
+                                <p>Desenvolvedor</p>
                             </div>
                         </div>
                     </div>

@@ -139,19 +139,19 @@ if (isset($_SESSION['temCartao'])) {
                             <div class="author_info">
                                 <center><table id="customers">
                                         <tr>
-                                            <th>CH:</th>
+                                            <td>CH:</td>
                                             <td>2 Horas</td>
                                         </tr>
                                         <tr>
-                                            <th>Nível:</th>
+                                            <td>Nível:</td>
                                             <td>Iniciante</td>
                                         </tr>
                                         <tr>
-                                            <th>Idioma:</th>
+                                            <td>Idioma:</td>
                                             <td>Português</td>
                                         </tr>
                                         <tr>
-                                            <th>Preço: </th>
+                                            <td>Preço: </td>
                                             <td>R$</td>
                                         </tr>
                                     </table></center>
@@ -170,7 +170,7 @@ if (isset($_SESSION['temCartao'])) {
                             } else {
                                 echo
                                 "<div class='live_chat_btn'>
-                   <a data-toggle='modal' data-target='#modalLogin' class='login popup-with-form'>
+                   <a data-toggle='modal' data-target='#modalLogin' class=''>
                    <span style='background-color: #FDAE5C;' class='boxed_btn'>Entrar</span></a>
                    </div>";
                             }
