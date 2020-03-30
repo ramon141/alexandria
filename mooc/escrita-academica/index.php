@@ -72,7 +72,7 @@ if (isset($_SESSION['temCartao'])) {
                             <div style="text-align: justify;" >
                                 <p  style="color: #777777; line-height: 26px;">Já se perguntou como são feitos trabalhos acadêmicos de alta qualidade?
                                     Neste curso, resolveremos juntos o problema de desenvolver trabalhos acadêmicos que está causando estresse, dor de cabeça e desconforto na sua vida acadêmica. O MOOC de escrita acadêmica foi desenvolvido para que fosse facilmente assimilado por iniciantes. Está repleto de materiais e exemplos de trabalhos acadêmicos.
-                                    Adequado para acadêmicos iniciantes, através deste curso que contém 4 módulos e 12 horas de conteúdo, você aprenderá o fundamento básico da escrita acadêmica e estabelecerá um forte entendimento do conceito por trás dos gêneros e estilos acadêmicos. No fim do curso, você será capaz de desenvolver seus trabalhos com grande facilidade. 
+                                    Adequado para acadêmicos iniciantes, através deste curso que contém 4 módulos e 2 horas de conteúdo, você aprenderá o fundamento básico da escrita acadêmica e estabelecerá um forte entendimento do conceito por trás dos gêneros e estilos acadêmicos. No fim do curso, você será capaz de desenvolver seus trabalhos com grande facilidade. 
                                 </p>
                             </div>
                             <h3 class="second_title" style="color: #04D2C8;">Roteiro do Curso</h3>

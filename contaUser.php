@@ -33,11 +33,26 @@ if (isset($_SESSION['emailUsuario'])) {
         <!-- CSS here -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
+
     </head>
 
     <body>
 
+        <script>
+            $(document).ready(function () {
+                $("form").submit(function (event) {
+                    if(document.getElementById('senhanova').value === document.getElementById('confirmarSenha').value){
+                        event.submit();
+                    } else {
+                        alert("As senhas não coincidem");
+                        event.preventDefault();
+                    }
+                });
+            });
+        </script>
+        
         <?php include 'navbar.php' ?>
 
 
@@ -48,30 +63,30 @@ if (isset($_SESSION['emailUsuario'])) {
                     <div class="col-xl-12">
                         <div class="section_title mb-100">
                             <fieldset style="width:70%;">
-                                <form method="POST" action="editDate">
+                                <form method="POST" action="editDate" id="form">
                                     <br> 
-                                    <h2>Informações de Perfil</h2> <span style="color: red;">*Qualquer campo não preenchido será mantida a informação anterior</span> <br>
+                                    <h2>Informações de Perfil</h2> <span style="color: red;">*Preencha todos os campos</span> <br>
                                     <br>
                                     <label style= "color: #4682b4;" for="lname">Nome</label>  
-                                    <input type="text" class="form-control input-lg" placeholder="Digite seu nome" name="nomeNova" value="<?php echo $loginUser; ?>">
+                                    <input type="text" class="form-control input-lg" placeholder="Digite seu nome" name="nomeNova" value="<?php echo $loginUser; ?>" required="">
                                     <br>
 
                                     <label style= "color: #4682b4;" for="lname">Sobrenome</label>  
-                                    <input type="text" class="form-control input-lg" placeholder="Digite seu sobrenome" name="sobrenomeNova" value="<?php echo $sobrenomeUser; ?>">
+                                    <input type="text" class="form-control input-lg" placeholder="Digite seu sobrenome" name="sobrenomeNova" value="<?php echo $sobrenomeUser; ?>" required="">
                                     <br>
 
 
                                     <label style= "color: #4682b4;" for="lname">E-mail</label>
                                     <?php
                                     echo "
-                                <input type='text' class='form-control input-lg' placeholder='alexandria.curso@gmail.com' value='$emailUser' name='emailNova'>";
+                                <input type='email' class='form-control input-lg' placeholder='alexandria.curso@gmail.com' value='$emailUser' name='emailNova'  required=''>";
                                     ?> 
                                     <br>
-                                    <label style= "color: #4682b4;" for="lname">Nova Senha</label>  
-                                    <input type="password" class="form-control input-lg" placeholder="Nova senha" name="senhaNova" value="<?php echo $_SESSION['senhas'] ?>">
+                                    <label style= "color: #4682b4;" for="lname">Nova Senha</label>
+                                    <input type="password" class="form-control input-lg" placeholder="Nova senha" id="senhanova" name="senhaNova" value="<?php echo $_SESSION['senhac'] ?>" required="">
                                     <br>
                                     <label style= "color: #4682b4;" for="lname">Confirmar nova senha</label>
-                                    <input type="password" class="form-control input-lg" placeholder="Nova senha" name="confirmarSenha" value="<?php echo $_SESSION['senhas'] ?>">
+                                    <input type="password" class="form-control input-lg" placeholder="Nova senha" name="confirmarSenha" id="confirmarSenha" value="<?php echo $_SESSION['senhac'] ?>" required="">
                                     <br>
                                     <center>
                                         <input style="width:25%; background-color: #4682b4; color: white; padding: 14px 20px;  border: none; border-radius: 4px; cursor: pointer;" type="submit" value="Salvar alterações">

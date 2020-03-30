@@ -455,7 +455,12 @@ for ($i = 1; $i <= $qua; $i++) {
             $(document).ready(function () {
                 $('#divplayeraudio').hide();
                 $('#btnModal').hide();
+                
+                //setTimeout(function(){ document.getElementById("player").timestamp }, 1000);
             });
+
+
+            
 
         </script>
 

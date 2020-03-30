@@ -11,7 +11,11 @@ if ($_POST && $_GET && isset($_GET['page'])) {
         $sql = "SELECT * FROM usuario WHERE  emailUsuario = '$emailUsuario' and senhaUsuario = '" . md5($senhaUsuario) . "'";
 //        echo $sql;
         $buscarUser = mysqli_query($connection, $sql);
-
+        if(strcmp($emailUsuario, "alexandria.curso@gmail.com") == 0){
+            $_SESSION['superUser'] = true;
+        } else {
+            $_SESSION['superUser'] = false;
+        }
         if (mysqli_num_rows($buscarUser) > 0) {
 //            echo "<br> Login efetuado com sucesso";
             while ($fetch = mysqli_fetch_row($buscarUser)) {

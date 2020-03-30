@@ -1,19 +1,17 @@
 <?php
-
 session_start();
 if (isset($_SESSION['nomeUsuario'])) {
 
     $loginUser = $_SESSION['nomeUsuario'];
-    
-} 
+}
 
-if (strcmp($_SESSION['statusPagamento'], "1")==0 ) {
+if (strcmp($_SESSION['statusPagamento'], "1") == 0) {
     $pagou = $_SESSION['statusPagamento'];
-}else {
-    if(!$_SESSION){
-            header("Location: ../../acessNegado");
+} else {
+    if (!$_SESSION) {
+        header("Location: ../../acessNegado");
     } else {
-        if(!strcmp($_SESSION['login'], "ok") == 0){
+        if (!strcmp($_SESSION['login'], "ok") == 0) {
             header("Location: ../../acessNegado");
         }
     }
@@ -42,6 +40,10 @@ if ($_GET && isset($_GET['id'])) {
 }
 ?>
 
+
+
+
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -65,7 +67,7 @@ if ($_GET && isset($_GET['id'])) {
 
     <body>
         <!-- header-start -->
-                            <?php include '../../navbar.php'; ?>
+        <?php include '../../navbar.php'; ?>
         <!-- header-end -->
 
         <!-- bradcam_area_start -->
@@ -171,6 +173,128 @@ if ($_GET && isset($_GET['id'])) {
                             <button type="submit" style="width: 20%; background-color: #4682b4;" id="btPubli" name="btPublicar" class="btn btn-primary">Enviar</button>
                         </div>
                     </form>
+                </div><br><br>
+                <div>
+
+
+
+                    <!--comeco do php-->
+
+                    <?php
+                    if ($_SESSION['superUser'] && (isset($_GET) || isset($_POST)) && (isset($_GET['idPergunta']) || isset($_POST['idPergunta']) && isset($_POST['resposta']))) {//so entra se tiver o get correto, e for superusuario
+                        
+                        if (isset($_POST) && isset($_POST['idPergunta']) && isset($_POST['resposta'])) {//insere ou atualiza a resposta
+                            $idPergunta = $_POST['idPergunta'];
+                            $respostaForm = $_POST['resposta'];
+                            $queryPergunta = mysqli_query($connection, "SELECT * FROM `vforumsemresposta` where idTopico = '$idPergunta'");
+
+                            if (mysqli_num_rows($queryPergunta) > 0) {//pergunta ainda nao respondida
+                                
+                                if (mysqli_query($connection, "INSERT INTO `resposta_topico` (`idRespostaTopico`, `respostaTopico`, `dataRespostaTopico`, `topico_foruns_idTopico`) VALUES (NULL, '$respostaForm', '" . date('Y-m-d') . "', '$idPergunta');")) {
+                                    echo "Inserido";
+                                }
+                            } else {
+                                $queryPergunta = mysqli_query($connection, "SELECT * FROM `vforumcomresposta` where idTopico = '$idPergunta'");
+
+                                echo "$idPergunta<br>";
+                                echo "$respostaForm";
+                                
+                                if (mysqli_num_rows($queryPergunta) > 0) {
+                                    echo "iiiiiddd";
+                                    if (mysqli_query($connection, "UPDATE `resposta_topico` SET `respostaTopico` = '$respostaForm' WHERE `resposta_topico`.`idRespostaTopico` = $idPergunta;")) {
+                                        echo "Atualizado";
+                                    }
+                                }
+                            }
+                        } else {//vai aparecer o formulario
+                            $idPergunta = $_GET['idPergunta']; //obtendo o id da pergunta via get
+
+                            $queryPergunta = mysqli_query($connection, "SELECT * FROM `vforumsemresposta` where idTopico = '$idPergunta'");
+
+                            if (mysqli_num_rows($queryPergunta) > 0) {//pergunta ainda nao respondida
+                                while ($fetchPergunta = mysqli_fetch_array($queryPergunta)) {//obtendo as informacoes do banco de dados
+                                    $perguntaForm = $fetchPergunta['pergunta'];
+                                    $idRespotaForm = $fetchPergunta['idTopico'];
+                                    echo '
+                                        <h4>Responder Tópico</h4>
+                                        <form action="forum" method="POST">
+                    <div class="form-group">
+                        <label style="color: #4682b4;" for="textinput">Tópico</label>
+                        <input style="width: 50%;" value="' . $fetchPergunta['nomeTopico'] . '" type="text" placeholder="Nome" class="form-control input-md" readonly="">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: #4682b4;" for="textinput">Data de cadastro</label>
+                        <input style="width: 50%;" value="' . $fetchPergunta['dataCadastroTopico'] . '" type="text" placeholder="Nome" class="form-control input-md" readonly="">
+                    </div>
+
+                    <input type="hidden" value="'.$idRespotaForm.'" name="idPergunta">
+                    <div class="form-group">
+                        <label style="color: #4682b4;" for="textinput">Pergunta</label>
+                        <textarea style="width: 50%;" class="form-control" id="textarea" name="resposta" placeholder="Tente ser o mais objetivo possível">' . $perguntaForm . '</textarea><br>
+                            
+                        <label style="color: #4682b4;" for="textinput">Resposta</label>
+                        <textarea style="width: 50%;" class="form-control" id="textarea" name="resposta" placeholder="Tente ser o mais objetivo possível"></textarea><br>
+                    </div>
+                    <button type="submit" style="width: 10%; background-color: #4682b4;" id="btRespTopico" name="btResoTopic" class="btn btn-primary">Enviar</button>
+                                        
+                                </form>
+                                ';
+                                }
+                            } else {
+                                $queryPergunta = mysqli_query($connection, "SELECT * FROM `vforumcomresposta` where idTopico = '$idPergunta'");
+
+                                if (mysqli_num_rows($queryPergunta) > 0) {
+
+                                    while ($fetchPergunta = mysqli_fetch_array($queryPergunta)) {//obtendo as informacoes do banco de dados
+                                        $perguntaForm = $fetchPergunta['pergunta'];
+                                        $idRespotaForm = $fetchPergunta['idTopico']; //passa como idPergunta, para facilitar no update
+//                                        $idRespotaForm = $fetchPergunta['idRespostaTopico'];
+
+
+                                        $perguntaForm = $fetchPergunta['pergunta'];
+                                        echo '
+                                        <h4>Responder Tópico</h4>
+                                        <form action="forum" method="POST">
+                                            <div class="form-group">
+                                                <label style="color: #4682b4;" for="textinput">Tópico</label>
+                                                <input style="width: 50%;" value="' . $fetchPergunta['nomeTopico'] . '" type="text" placeholder="Nome" class="form-control input-md" readonly="">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label style="color: #4682b4;" for="textinput">Data de cadastro</label>
+                                                <input style="width: 50%;" value="' . $fetchPergunta['dataCadastroTopico'] . '" type="text" placeholder="Nome" class="form-control input-md" readonly="">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label style="color: #4682b4;" for="textinput">Pergunta</label>
+                                                
+                                                <input type="hidden" value="'.$idRespotaForm.'" name="idPergunta">
+
+                                                <textarea style="width: 50%;" class="form-control" id="textarea" name="areaDescricao" placeholder="Tente ser o mais objetivo possível" readonly="">' . $perguntaForm . '</textarea><br>
+                                                <label style="color: #4682b4;" for="textinput">Resposta</label>
+                                                <textarea style="width: 50%;" class="form-control" id="textarea" name="resposta" placeholder="Tente ser o mais objetivo possível">' . $fetchPergunta['respostaTopico'] . '</textarea><br>
+                                            </div>
+                                            <button type="submit" style="width: 10%; background-color: #4682b4;" id="btRespTopico" name="btResoTopic" class="btn btn-primary">Enviar</button>
+                                        
+                                        </form>
+                                ';
+
+
+                                        //formulario
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ?>
+
+                    <!--fim do php-->
+
+
+
+
+
                 </div>
             </div>
         </div>

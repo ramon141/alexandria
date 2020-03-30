@@ -144,9 +144,10 @@ if (isset($_SESSION['statusPagamento'])) {
                     echo "
                     <ul class='nav navbar-nav ml-auto' >
                         <li class='nav-item active'>
-                            <button style='margin: 0 15px;' type='button' class='btn badge-info' data-toggle='modal' data-target='#modalLogin'> Entrar </button></li> 
+                            <button style='margin: 7px 15px 0px 0px; color:white;' type='button' class='btn btn-link' data-toggle='modal' data-target='#modalLogin'> Entrar </button>
+                        </li> 
                         <li class='nav-item'>
-                            <button type='button' class='btn badge-info' data-toggle='modal' data-target='#modalCadastro'> Cadastrar </button>
+                            <button type='button' class='boxed_btn_orange' data-toggle='modal' data-target='#modalCadastro'> Cadastrar </button>
                         </li>
                     </ul> ";
                 }
